@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			'deliveries': [
 				{
 					"fleet_id": agentNum,
-					"job_ids": [trakingNum],
+					"job_ids": [trakingNum]
 				}
 			]
 		};

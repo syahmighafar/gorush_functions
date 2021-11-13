@@ -137,12 +137,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		};
 		var body = {
 			'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-			'deliveries': [
-				{
-					"fleet_id": agentNum,
-					"job_ids": [trakingNum]
-				}
-			]
+			"fleet_id": agentNum,
+			"job_ids": [trakingNum]
 		};
 		request.send(JSON.stringify(body));
 	}

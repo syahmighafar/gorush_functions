@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 				request.onreadystatechange = function () {
 					if (this.readyState === 4) {
+						console.log(this.readyState);
 						console.log('Status:', this.status);
 						console.log('Headers:', this.getAllResponseHeaders());
 						console.log('Body:', this.responseText);

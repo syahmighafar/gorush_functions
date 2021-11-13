@@ -62,12 +62,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		document.getElementById('deliveryDate').value = '';
 		document.getElementById('agent').value = '';
 
-		var responseot = '';
-		var json_responseot = '';
-
-		var responsejd = '';
-		var json_responsejd = '';
-
 		var request = new XMLHttpRequest();
 
 		request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
@@ -79,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				console.log('Status:', this.status);
 				console.log('Headers:', this.getAllResponseHeaders());
 				console.log('Body:', this.responseText);
-				responseot = this.responseText;
-				json_responseot = JSON.parse(responseot);
 
 				request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
 
@@ -91,11 +83,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 						console.log('Status:', this.status);
 						console.log('Headers:', this.getAllResponseHeaders());
 						console.log('Body:', this.responseText);
-
-						responsejd = this.responseText;
-						json_responsejd = JSON.parse(responsejd);
-
-
 
 						document.getElementById("trackingNumberSubmitted").innerHTML = trakingNum;
 						document.getElementById("deliveryDateSubmitted").innerHTML = deliveryD;

@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+    
+document.getElementById("resultBox").style.display = 'none';
+
 document.getElementById("submitAssignButton").addEventListener("click", assignTask);
 
 function assignTask(){
@@ -34,8 +37,8 @@ function assignTask(){
           
         if(json_responseet.status != 404){
             document.getElementById("trackingNumberSubmitted").innerHTML = trakingNum;
-            document.getElementById("deliveryDateSubmitted").innerHTML = agentNum;
-            document.getElementById("agentSubmitted").innerHTML = deliveryD;
+            document.getElementById("deliveryDateSubmitted").innerHTML = deliveryD;
+            document.getElementById("agentSubmitted").innerHTML = agentNum;
             
             document.getElementById("loading").style.display = 'none';
             document.getElementById("resultBox").style.display = 'block';                           

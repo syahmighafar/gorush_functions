@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				responseot = this.responseText;
 				json_responseot = JSON.parse(responseot);
 
-
-
 				request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
 
 				request.setRequestHeader('Content-Type', 'application/json');
@@ -122,12 +120,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 						'end_time': deliveryD
 					};
 					request.send(JSON.stringify(body));
-				}
-
-				if (json_responseot.status == 404) {
-					document.getElementById("loading").style.display = 'none';
-					document.getElementById("wronginput").style.display = 'block';
-					document.getElementById("inputarea").style.display = 'block';
 				}
 			}
 		};

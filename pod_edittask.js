@@ -7,7 +7,7 @@ document.getElementById("submitAssignButton").addEventListener("click", assignTa
 function assignTask(){
     
     document.getElementById("inputarea").style.display = 'none';
-    document.getElementById("loading").style.display = 'inline';
+    document.getElementById("loading").style.display = 'block';
     document.getElementById("wronginput").style.display = 'none';
     
     let trakingNum = document.getElementById("trackingNumber").value;

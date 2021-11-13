@@ -82,52 +82,48 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				responseot = this.responseText;
 				json_responseot = JSON.parse(responseot);
 
-				if (json_responseot.status != 404) {
 
-					request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
 
-					request.setRequestHeader('Content-Type', 'application/json');
+				request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
 
-					request.onreadystatechange = function () {
-						if (this.readyState === 4) {
-							console.log('Status:', this.status);
-							console.log('Headers:', this.getAllResponseHeaders());
-							console.log('Body:', this.responseText);
+				request.setRequestHeader('Content-Type', 'application/json');
 
-							responsejd = this.responseText;
-							json_responsejd = JSON.parse(responsejd);
+				request.onreadystatechange = function () {
+					if (this.readyState === 4) {
+						console.log('Status:', this.status);
+						console.log('Headers:', this.getAllResponseHeaders());
+						console.log('Body:', this.responseText);
 
-							if (json_responsejd.status != 404) {
+						responsejd = this.responseText;
+						json_responsejd = JSON.parse(responsejd);
 
-								document.getElementById("trackingNumberSubmitted").innerHTML = trakingNum;
-								document.getElementById("deliveryDateSubmitted").innerHTML = deliveryD;
-								document.getElementById("agentSubmitted").innerHTML = agentNum;
 
-								document.getElementById("loading").style.display = 'none';
-								document.getElementById("resultBox").style.display = 'block';
-								document.getElementById("submitagain").style.display = 'block';
 
-								document.getElementById("submitagain").addEventListener("click", function () {
-									document.getElementById("submitagain").style.display = 'none';
-									document.getElementById("inputarea").style.display = 'block';
-									document.getElementById("resultBox").style.display = 'none';
-								});
-							} if (json_responsejd.status == 404) {
-								document.getElementById("loading").style.display = 'none';
-								document.getElementById("wronginput").style.display = 'block';
-								document.getElementById("inputarea").style.display = 'block';
-							}
-						};
-						var body = {
-							'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-							"job_ids": [trakingNum],
-							'layout_type': 0,
-							'start_time': dateTime,
-							'end_time': deliveryD
-						};
-						request.send(JSON.stringify(body));
-					}
+						document.getElementById("trackingNumberSubmitted").innerHTML = trakingNum;
+						document.getElementById("deliveryDateSubmitted").innerHTML = deliveryD;
+						document.getElementById("agentSubmitted").innerHTML = agentNum;
+
+						document.getElementById("loading").style.display = 'none';
+						document.getElementById("resultBox").style.display = 'block';
+						document.getElementById("submitagain").style.display = 'block';
+
+						document.getElementById("submitagain").addEventListener("click", function () {
+							document.getElementById("submitagain").style.display = 'none';
+							document.getElementById("inputarea").style.display = 'block';
+							document.getElementById("resultBox").style.display = 'none';
+						});
+
+					};
+					var body = {
+						'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+						"job_ids": [trakingNum],
+						'layout_type': 0,
+						'start_time': dateTime,
+						'end_time': deliveryD
+					};
+					request.send(JSON.stringify(body));
 				}
+
 				if (json_responseot.status == 404) {
 					document.getElementById("loading").style.display = 'none';
 					document.getElementById("wronginput").style.display = 'block';

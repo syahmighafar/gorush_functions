@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pls im just testing</title>
+    <h1>just testing around</h1>
+
+    <div id="tasklist">
+
+    </div>
+</head>
+
+<body>
+    <script>
+
+        var countnumtask = 0;
+        var responsegat = '';
+        var json_responsegat = '';
+
+        var request = new XMLHttpRequest();
+
+        request.open('POST', 'https://api.tookanapp.com/v2/get_all_tasks');
+
+        request.setRequestHeader('Content-Type', 'application/json');
+
+        request.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                console.log('Status:', this.status);
+                console.log('Headers:', this.getAllResponseHeaders());
+                console.log('Body:', this.responseText);
+                responsegat = this.responseText;
+                json_responsegat = JSON.parse(responsegat);
+
+                // let table = document.createElement('table');
+                // let thead = document.createElement('thead');
+                // let tbody = document.createElement('tbody');
+
+                // table.appendChild(thead);
+                // table.appendChild(tbody);
+
+                // Adding the entire table to the body tag
+                // document.getElementById('tasklist').appendChild(table);
+
+                countnumtask = json_responsegat.data["length"];
+
+                for (let i = 0; i < countnumtask; i++) {
+                    var para = document.createElement("P" + i);
+                    para.innerHTML = json_responsegat.data[i].customer_username + "<br>";
+                    document.getElementById("tasklist").appendChild(para);
+                }
+            }
+        };
+
+        var body = {
+            "api_key": "51676580f24b091114132d38111925401ee4c2f328d978375e1f03",
+            "job_status": 6,
+            "job_type": 1,
+            "start_date": "2020-08-20",
+            "end_date": "2021-12-25",
+            "custom_fields": 1,
+            "is_pagination": 1,
+            "requested_page": 1,
+            "customer_id": "",
+            "job_id": [],
+            "order_id": [],
+            "team_id": 921691
+        }
+
+        request.send(JSON.stringify(body));
+    </script>
+</body>
+
+</html>

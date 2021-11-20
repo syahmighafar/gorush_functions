@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
+            document.getElementById("add_more_fields").addEventListener("click", addItems);
+            document.getElementById("remove_fields").addEventListener("click", removeItems);
+
+
             var additional_item = document.getElementById('additional_item');
-            var add_more_fields = document.getElementById('add_more_fields');
-            var remove_fields = document.getElementById('remove_fields');
             var countadd = 0;
 
-            add_more_fields.onclick = function () {
+
+            function addItems(){
 
                 var newheading = document.createElement('h4');
                 newheading.innerHTML = "Additional ltem " + (countadd + 1);
@@ -76,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 countadd = countadd + 1;
             }
 
-            remove_fields.onclick = function () {
+            function removeItems(){
                 var div_tags = additional_item.getElementsByTagName('div');
                 var heading_tags = additional_item.getElementsByTagName('h4');
                 if (div_tags.length != 0) {

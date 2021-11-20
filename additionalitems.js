@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-
             var additional_item = document.getElementById('additional_item');
             var add_more_fields = document.getElementById('add_more_fields');
             var remove_fields = document.getElementById('remove_fields');
-            countadd = 0;
+            var countadd = 0;
 
             add_more_fields.onclick = function () {
 
@@ -89,4 +88,3 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
             }
         });
-

@@ -1,5 +1,4 @@
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function (event) {
 
 
             var additional_item = document.getElementById('additional_item');
@@ -90,4 +89,4 @@
                 }
             }
         });
-    </script>
+

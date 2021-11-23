@@ -43,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 document.getElementById("quantityarea" + (countadd + 1)).appendChild(newLabel);
 
                 var newField = document.createElement('input');
-                newField.setAttribute('type', 'text');
+                newField.setAttribute('type', 'number');
                 newField.setAttribute('class', 'text-field w-input');
-                newField.setAttribute('minlength', '10');
-                newField.setAttribute('name', 'Quantity-' + (countadd + 1));
+                newField.setAttribute('maxlength', '5');
+                newField.setAttribute('name', 'Quantity ' + (countadd + 1));
                 newField.setAttribute('data-name', 'Quantity ' + (countadd + 1));
                 newField.setAttribute('id', 'Quantity-' + (countadd + 1));
                 newField.setAttribute('placeholder', 'Quantity');
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 document.getElementById("itempricearea" + (countadd + 1)).appendChild(newLabel);
 
                 var newField = document.createElement('input');
-                newField.setAttribute('type', 'text');
+                newField.setAttribute('type', 'number');
                 newField.setAttribute('class', 'text-field w-input');
                 newField.setAttribute('maxlength', '256');
                 newField.setAttribute('name', 'Item Price ' + (countadd + 1));
@@ -73,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 newField.setAttribute('placeholder', 'Item Price');
                 newField.required = true;
                 document.getElementById("itempricearea" + (countadd + 1)).appendChild(newField);
-
-
 
                 countadd = countadd + 1;
             }

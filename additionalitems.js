@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             newField.setAttribute('name', 'Item ' + (countadd + 1));
             newField.setAttribute('data-name', 'Item ' + (countadd + 1));
             newField.setAttribute('id', 'item' + (countadd + 1));
-            newField.setAttribute('placeholder', 'Item');
             newField.required = true;
             document.getElementById("itemnamearea" + (countadd + 1)).appendChild(newField);
 
@@ -50,28 +49,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
             newField.setAttribute('name', 'Quantity ' + (countadd + 1));
             newField.setAttribute('data-name', 'Quantity ' + (countadd + 1));
             newField.setAttribute('id', 'Quantity-' + (countadd + 1));
-            newField.setAttribute('placeholder', 'Quantity');
             newField.required = true;
             document.getElementById("quantityarea" + (countadd + 1)).appendChild(newField);
 
             var newDiv = document.createElement("div");
-            newDiv.setAttribute("id", "itempricearea" + (countadd + 1))
+            newDiv.setAttribute("id", "totalitempricearea" + (countadd + 1))
             additional_item.appendChild(newDiv);
 
             var newLabel = document.createElement('label');
-            newLabel.innerHTML = "Item Price:*";
-            document.getElementById("itempricearea" + (countadd + 1)).appendChild(newLabel);
+            newLabel.innerHTML = "Total Item Price (RM):*";
+            document.getElementById("totalpricearea" + (countadd + 1)).appendChild(newLabel);
 
             var newField = document.createElement('input');
             newField.setAttribute('type', 'number');
             newField.setAttribute('class', 'text-field w-input itemprice');
             newField.setAttribute('maxlength', '256');
-            newField.setAttribute('name', 'Item Price ' + (countadd + 1));
-            newField.setAttribute('data-name', 'Item Price ' + (countadd + 1));
-            newField.setAttribute('id', 'Item-Price-' + (countadd + 1));
-            newField.setAttribute('placeholder', 'Item Price');
+            newField.setAttribute('name', 'Total Item Price (RM) ' + (countadd + 1));
+            newField.setAttribute('data-name', 'Total Item Price (RM) ' + (countadd + 1));
+            newField.setAttribute('id', 'Total-Item-Price-RM' + (countadd + 1));
             newField.required = true;
-            document.getElementById("itempricearea" + (countadd + 1)).appendChild(newField);
+            document.getElementById("totalitempricearea" + (countadd + 1)).appendChild(newField);
 
             countadd = countadd + 1;
 

@@ -61,7 +61,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             document.getElementById("totalitempricearea" + (countadd + 1)).appendChild(newLabel);
 
             var newField = document.createElement('input');
-            newField.setAttribute('type', 'number');
+            newField.setAttribute('type', 'number')
+            newField.setAttribute('step', '.01')
             newField.setAttribute('class', 'text-field w-input itemprice');
             newField.setAttribute('maxlength', '256');
             newField.setAttribute('name', 'Total Item Price (RM) ' + (countadd + 1));

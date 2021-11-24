@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             var newLabel = document.createElement('label');
             newLabel.innerHTML = "Total Item Price (RM):*";
-            document.getElementById("totalpricearea" + (countadd + 1)).appendChild(newLabel);
+            document.getElementById("totalitempricearea" + (countadd + 1)).appendChild(newLabel);
 
             var newField = document.createElement('input');
             newField.setAttribute('type', 'number');

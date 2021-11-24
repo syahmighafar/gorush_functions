@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             var newField = document.createElement('input');
             newField.setAttribute('type', 'number');
-            newField.setAttribute('class', 'text-field w-input');
+            newField.setAttribute('class', 'text-field w-input itemPrice');
             newField.setAttribute('maxlength', '256');
             newField.setAttribute('name', 'Item Price ' + (countadd + 1));
             newField.setAttribute('data-name', 'Item Price ' + (countadd + 1));

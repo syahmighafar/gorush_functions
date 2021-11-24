@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         function addItems() {
 
             var newheading = document.createElement('h4');
-            newheading.innerHTML = "Additional ltem " + (countadd + 1);
+            newheading.innerHTML = "Additional ltem Details " + (countadd + 1);
             additional_item.appendChild(newheading);
 
             var newDiv = document.createElement("div");

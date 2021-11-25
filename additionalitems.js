@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
             var newLabel = document.createElement('label');
-            newLabel.innerHTML = "Item:*";
+            newLabel.innerHTML = "Item Description:*";
             document.getElementById("itemnamearea" + (countadd + 1)).appendChild(newLabel);
 
             var newField = document.createElement('input');
             newField.setAttribute('type', 'text');
             newField.setAttribute('class', 'text-field w-input');
             newField.setAttribute('maxlength', '256');
-            newField.setAttribute('name', 'Item ' + (countadd + 1));
-            newField.setAttribute('data-name', 'Item ' + (countadd + 1));
-            newField.setAttribute('id', 'item' + (countadd + 1));
+            newField.setAttribute('name', 'Item Description ' + (countadd + 1));
+            newField.setAttribute('data-name', 'Item Description ' + (countadd + 1));
+            newField.setAttribute('id', 'Item-Description-' + (countadd + 1));
             newField.required = true;
             document.getElementById("itemnamearea" + (countadd + 1)).appendChild(newField);
 

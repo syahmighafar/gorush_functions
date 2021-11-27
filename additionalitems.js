@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             additional_item.appendChild(newDiv);
 
             var newLabel = document.createElement('label');
-            newLabel.innerHTML = "Total Item Price (RM):*";
+            newLabel.innerHTML = "Total Item Price:*";
             document.getElementById("totalitempricearea" + (countadd + 1)).appendChild(newLabel);
 
             var newField = document.createElement('input');
@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             newField.setAttribute('step', '.01')
             newField.setAttribute('class', 'text-field w-input itemprice');
             newField.setAttribute('maxlength', '256');
-            newField.setAttribute('name', 'Total Item Price (RM) ' + (countadd + 1));
-            newField.setAttribute('data-name', 'Total Item Price (RM) ' + (countadd + 1));
-            newField.setAttribute('id', 'Total-Item-Price-RM' + (countadd + 1));
+            newField.setAttribute('name', 'Total Item Price ' + (countadd + 1));
+            newField.setAttribute('data-name', 'Total Item Price ' + (countadd + 1));
+            newField.setAttribute('id', 'Total-Item-Price-' + (countadd + 1));
             newField.required = true;
             document.getElementById("totalitempricearea" + (countadd + 1)).appendChild(newField);
 

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job ID</title>
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        label {
+            font-family: poppins;
+        }
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="container"
+            style="background-color: white; text-align: center; padding-left: 30px; padding-right: 30px; border-radius: 10px;">
+
+            <h2 style="color:#c01f2e; text-align: center; margin-top: 20px; margin-bottom: 10px;">Your <span
+                    style="color: #1a76ba;">Orders</span></h2>
+
+            <div style="margin-top: 60px; margin-bottom: 20px; margin-left: 40px; margin-right: 40px;">
+                <div id="trackingnumberarea" style="text-align: center;">
+                    <label>Job ID:<br><input id="order_id" type="text" placeholder="BNXXXXXXX"
+                            style="border-radius: 5px; text-align:center;"></label>
+                    <br><br>
+
+                    <button id="trackbutton"
+                        style="padding-top: 9px; padding-left: 15px; padding-right: 15px; padding-bottom: 9px; border-radius: 5px; background-color: #3898ec; color: white; border: 0px;">Track</button>
+                </div>
+
+                <div id="trackagain" style="display:none">
+                    <button id="trackbuttonagain"
+                        style="padding-top: 9px; padding-left: 15px; padding-right: 15px; padding-bottom: 9px; border-radius: 5px; background-color: #3898ec; color: white; border: 0px;">Find
+                        Orders Again</button>
+                </div><br>
+
+                <div id="trackingpagearea" style="display:none">
+                    <a href=""><button id="trackingpagebutton"
+                            style="padding-top: 9px; padding-left: 15px; padding-right: 15px; padding-bottom: 9px; border-radius: 5px; background-color: #3898ec; color: white; border: 0px;">Track
+                            The Order</button></a>
+                </div><br>
+
+                <div id="loading" style="display:none">
+                    <h4>Please wait...</h4>
+                </div>
+
+                <div id="wronginput" style="display:none">
+                    <h4 style="color: #b30000;">Please check the BRUHIMS Number</h4>
+                </div>
+
+                <div id="jobresultbox" style="display:none">
+                    <div style="text-align: center;">
+                        <h3>ORDER INFORMATION</h3><br>
+                        <p><b>Patient Name: </b><span id="patientname"></span></p>
+                        <p><b>Patient Number: </b><span id="patientnumber"></span></p>
+                    </div>
+
+                    <div id="orderlist"></div>
+
+                    <script>
+
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            document.getElementById("trackbutton").addEventListener("click", tracknumber);
+
+                            function tracknumber() {
+                                document.getElementById("trackingnumberarea").style.display = 'none';
+                                document.getElementById("trackingpagearea").style.display = 'none';
+
+                                var orderid = '';
+                                orderid = document.getElementById("order_id").value;
+                                document.getElementById('order_id').value = '';
+
+                                var responsejd = '';
+                                var json_responsejd = '';
+
+                                var request = new XMLHttpRequest();
+
+                                document.getElementById("jobresultbox").style.display = 'none';
+                                document.getElementById("wronginput").style.display = 'none';
+                                document.getElementById("loading").style.display = 'inline';
+
+                                request.open('POST', 'https://api.tookanapp.com/v2/get_job_details_by_order_id');
+
+                                request.setRequestHeader('Content-Type', 'application/json');
+
+                                request.onreadystatechange = function () {
+                                    if (this.readyState === 4) {
+                                        console.log('Status:', this.status);
+                                        console.log('Headers:', this.getAllResponseHeaders());
+                                        console.log('Body:', this.responseText);
+                                        responsejd = this.responseText;
+                                        json_responsejd = JSON.parse(responsejd);
+
+                                        if (json_responsejd.status != 404) {
+
+                                            document.getElementById("patientname").innerHTML = json_responsejd.data[0].customer_username;
+                                            document.getElementById("patientnumber").innerHTML = json_responsejd.data[1].order_id;
+
+                                            let table = document.createElement('table');
+                                            table.setAttribute("id", "tasklisttable");
+                                            table.className = "table table-striped table-hover table-bordered table-responsive";
+                                            let thead = document.createElement('thead');
+                                            let tbody = document.createElement('tbody');
+
+                                            table.appendChild(thead);
+                                            table.appendChild(tbody);
+
+                                            document.getElementById('orderlist').appendChild(table);
+
+                                            // Creating and adding data to first row of the table
+                                            let row_1 = document.createElement('tr');
+                                            let heading_1 = document.createElement('th');
+                                            heading_1.innerHTML = "Tracking No.";
+                                            let heading_2 = document.createElement('th');
+                                            heading_2.innerHTML = "Job Status";
+                                            let heading_3 = document.createElement('th');
+                                            heading_3.innerHTML = "Address";
+                                            let heading_4 = document.createElement('th');
+                                            heading_4.innerHTML = "Date/Time";
+
+                                            row_1.appendChild(heading_1);
+                                            row_1.appendChild(heading_2);
+                                            row_1.appendChild(heading_3);
+                                            row_1.appendChild(heading_4);
+                                            thead.appendChild(row_1);
+
+                                            var countorderhistory = json_responsejd.data.length;
+
+                                            for (let i = 0; i < countorderhistory; i++) {
+
+                                                var today = new Date(json_responsejd.data[i].creation_datetime);
+                                                var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+                                                var ampm = '';
+                                                var ampmhour = '';
+                                                var ampmmin = '';
+
+                                                if (today.getHours() < 12) {
+                                                    ampm = 'am';
+                                                    ampmhour = (today.getHours());
+                                                }
+
+                                                if (today.getHours() == 12) {
+                                                    ampm = 'pm';
+                                                    ampmhour = (today.getHours());
+                                                }
+
+                                                if (today.getHours() > 12) {
+                                                    ampm = 'pm';
+                                                    ampmhour = (today.getHours() - 12);
+                                                }
+
+                                                if (today.getMinutes() < 10) {
+                                                    ampmmin = "0" + (today.getMinutes());
+                                                }
+
+                                                if (today.getMinutes() >= 10) {
+                                                    ampmmin = (today.getMinutes());
+                                                }
+                                                var time = ampmhour + ":" + ampmmin + " " + ampm;
+
+                                                var dateTime = date + ' ' + time;
+
+                                                if (json_responsejd.data[i].job_status == 0) {
+                                                    var statusJob = "Assigned";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 1) {
+                                                    var statusJob = "Started";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 2) {
+                                                    var statusJob = "Successful";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 3) {
+                                                    var statusJob = "Failed";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 4) {
+                                                    var statusJob = "In Progress/Arrived";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 6) {
+                                                    var statusJob = "Unassigned";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 7) {
+                                                    var statusJob = "Accepted/Acknowledged";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 8) {
+                                                    var statusJob = "Decline";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 9) {
+                                                    var statusJob = "Cancel";
+                                                }
+
+                                                if (json_responsejd.data[i].job_status == 10) {
+                                                    var statusJob = "Deleted";
+                                                }
+
+                                                let row_2 = document.createElement('tr');
+
+                                                let row_2_data_1 = document.createElement('td');
+                                                row_2_data_1.innerHTML = json_responsejd.data[i].job_id;
+                                                let row_2_data_2 = document.createElement('td');
+                                                row_2_data_2.innerHTML = statusJob;
+                                                let row_2_data_3 = document.createElement('td');
+                                                row_2_data_3.innerHTML = json_responsejd.data[i].job_address;
+                                                let row_2_data_4 = document.createElement('td');
+                                                row_2_data_4.innerHTML = dateTime;
+
+                                                row_2.appendChild(row_2_data_1);
+                                                row_2.appendChild(row_2_data_2);
+                                                row_2.appendChild(row_2_data_3);
+                                                row_2.appendChild(row_2_data_4);
+                                                tbody.appendChild(row_2);
+                                            }
+
+                                            document.getElementById("loading").style.display = 'none';
+                                            document.getElementById("jobresultbox").style.display = 'block';
+
+                                            document.getElementById("trackagain").style.display = 'block';
+
+                                            document.getElementById("trackingpagearea").style.display = 'block';
+
+                                            document.getElementById("trackbuttonagain").addEventListener("click", function () {
+                                                document.getElementById("trackingpagearea").style.display = 'none';
+                                                document.getElementById("trackagain").style.display = 'none';
+                                                document.getElementById("trackingnumberarea").style.display = 'block';
+                                                document.getElementById("jobresultbox").style.display = 'none';
+                                                document.getElementById("orderlist").innerHTML = '';
+                                            });
+                                        }
+                                        if (json_responsejd.status == 404) {
+                                            document.getElementById("loading").style.display = 'none';
+                                            document.getElementById("wronginput").style.display = 'block';
+                                            document.getElementById("trackingnumberarea").style.display = 'block';
+                                        }
+                                    }
+                                };
+                                var body = {
+                                    'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                                    'order_ids': [orderid],
+                                    'include_task_history': 1
+                                };
+                                request.send(JSON.stringify(body));
+                            }
+                        });
+                    </script>
+</body>
+
+</html>

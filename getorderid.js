@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                                         if (json_responsejd.status != 404) {
 
                                             document.getElementById("patientname").innerHTML = json_responsejd.data[0].customer_username;
-                                            document.getElementById("patientnumber").innerHTML = json_responsejd.data[1].order_id;
+                                            document.getElementById("patientnumber").innerHTML = json_responsejd.data[0].order_id;
 
                                             let table = document.createElement('table');
                                             table.setAttribute("id", "tasklisttable");

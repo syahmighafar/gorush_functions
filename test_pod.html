@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="loading" hidden>Please wait</p>
+
+    <p id="wronginput" hidden>Wrong Input</p>
+
+
+
+
+    <div id="inputarea">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number" id="trackingNumber"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber2')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number2" id="trackingNumber2"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber3')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number3" id="trackingNumber3"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber4')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number4" id="trackingNumber4"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber5')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number5" id="trackingNumber5"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber6')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number6" id="trackingNumber6"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber7')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number7" id="trackingNumber7"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber8')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number8" id="trackingNumber8"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber9')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number9" id="trackingNumber9"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber10')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number10" id="trackingNumber10"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber11')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number11" id="trackingNumber11"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber12')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number12" id="trackingNumber12"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber13')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number13" id="trackingNumber13"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber14')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number14" id="trackingNumber14"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber15')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number15" id="trackingNumber15"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber16')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number16" id="trackingNumber16"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber17')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number17" id="trackingNumber17"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber18')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number18" id="trackingNumber18"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber19')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number19" id="trackingNumber19"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber20')">
+        <input type="text" class="text-field-79 w-input" name="Tracking Number20" id="trackingNumber20"
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'agent')">
+        <p id="weGood">Test</p>
+    </div>
+
+    <div id="resultBox" hidden>
+        <p id="trackingNumberSubmitted"></p>
+        <p id="trackingNumberSubmitted2"></p>
+        <p id="trackingNumberSubmitted3"></p>
+        <p id="trackingNumberSubmitted4"></p>
+        <p id="trackingNumberSubmitted5"></p>
+        <p id="trackingNumberSubmitted6"></p>
+        <p id="trackingNumberSubmitted7"></p>
+        <p id="trackingNumberSubmitted8"></p>
+        <p id="trackingNumberSubmitted9"></p>
+        <p id="trackingNumberSubmitted10"></p>
+        <p id="trackingNumberSubmitted11"></p>
+        <p id="trackingNumberSubmitted12"></p>
+        <p id="trackingNumberSubmitted13"></p>
+        <p id="trackingNumberSubmitted14"></p>
+        <p id="trackingNumberSubmitted15"></p>
+        <p id="trackingNumberSubmitted16"></p>
+        <p id="trackingNumberSubmitted17"></p>
+        <p id="trackingNumberSubmitted18"></p>
+        <p id="trackingNumberSubmitted19"></p>
+        <p id="trackingNumberSubmitted20"></p>
+
+        <p id="deliveryDateSubmitted"></p>
+
+        <p id="agentSubmitted"></p>
+    </div>
+
+    <script>
+        var countBarcode = 1;
+        var endLoop = 0;
+
+        function jump001(field, autoMove) {
+
+            endLoop = 0;
+
+            if (field.value.length >= field.maxLength) {
+                document.getElementById(autoMove).focus();
+
+                if ((countBarcode == 1) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum = document.getElementById("trackingNumber").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn1 = this.responseText;
+                            json_responsetn1 = JSON.parse(responsetn1);
+
+                            
+
+
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 2) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum2 = document.getElementById("trackingNumber2").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum2],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            document.getElementById("resultBox").style.display = 'none';
+
+            document.getElementById("submitAssignButton").addEventListener("click", assignTask);
+
+            function assignTask() {
+
+                var today = new Date();
+
+                var todayDate = "";
+                var todayMonth = "";
+
+                var nextMonth = (today.getMonth()) + 1;
+
+                if (today.getDate() < 10) {
+                    todayDate = "0" + (today.getDate());
+                }
+
+                if (today.getDate() >= 10) {
+                    todayDate = (today.getDate());
+                }
+
+                if (nextMonth < 10) {
+                    todayMonth = "0" + (nextMonth);
+                }
+
+                if (nextMonth >= 10) {
+                    todayMonth = (nextMonth);
+                }
+
+                var date = today.getFullYear() + '-' + todayMonth + '-' + todayDate;
+
+                var time = "01:00:00";
+
+                var timeClose = "23:00:00";
+
+                var dateTime = date + ' ' + time;
+
+                var dateTimeClose = date + ' ' + timeClose;
+
+                document.getElementById("inputarea").style.display = 'none';
+                document.getElementById("loading").style.display = 'block';
+                document.getElementById("wronginput").style.display = 'none';
+
+                let trakingNum = document.getElementById("trackingNumber").value;
+                let trakingNum2 = document.getElementById("trackingNumber2").value;
+                let trakingNum3 = document.getElementById("trackingNumber3").value;
+                let trakingNum4 = document.getElementById("trackingNumber4").value;
+                let trakingNum5 = document.getElementById("trackingNumber5").value;
+                let trakingNum6 = document.getElementById("trackingNumber6").value;
+                let trakingNum7 = document.getElementById("trackingNumber7").value;
+                let trakingNum8 = document.getElementById("trackingNumber8").value;
+                let trakingNum9 = document.getElementById("trackingNumber9").value;
+                let trakingNum10 = document.getElementById("trackingNumber10").value;
+                let trakingNum11 = document.getElementById("trackingNumber11").value;
+                let trakingNum12 = document.getElementById("trackingNumber12").value;
+                let trakingNum13 = document.getElementById("trackingNumber13").value;
+                let trakingNum14 = document.getElementById("trackingNumber14").value;
+                let trakingNum15 = document.getElementById("trackingNumber15").value;
+                let trakingNum16 = document.getElementById("trackingNumber16").value;
+                let trakingNum17 = document.getElementById("trackingNumber17").value;
+                let trakingNum18 = document.getElementById("trackingNumber18").value;
+                let trakingNum19 = document.getElementById("trackingNumber19").value;
+                let trakingNum20 = document.getElementById("trackingNumber20").value;
+
+                let agentNum = document.getElementById("agent").value;
+
+                document.getElementById('trackingNumber').value = '';
+                document.getElementById('trackingNumber2').value = '';
+                document.getElementById('trackingNumber3').value = '';
+                document.getElementById('trackingNumber4').value = '';
+                document.getElementById('trackingNumber5').value = '';
+                document.getElementById('trackingNumber6').value = '';
+                document.getElementById('trackingNumber7').value = '';
+                document.getElementById('trackingNumber8').value = '';
+                document.getElementById('trackingNumber9').value = '';
+                document.getElementById('trackingNumber10').value = '';
+                document.getElementById('trackingNumber11').value = '';
+                document.getElementById('trackingNumber12').value = '';
+                document.getElementById('trackingNumber13').value = '';
+                document.getElementById('trackingNumber14').value = '';
+                document.getElementById('trackingNumber15').value = '';
+                document.getElementById('trackingNumber16').value = '';
+                document.getElementById('trackingNumber17').value = '';
+                document.getElementById('trackingNumber18').value = '';
+                document.getElementById('trackingNumber19').value = '';
+                document.getElementById('trackingNumber20').value = '';
+                document.getElementById('agent').value = '';
+
+                var responseot = '';
+                var json_responseot = '';
+
+                var responsejd = '';
+                var json_responsejd = '';
+
+                var request = new XMLHttpRequest();
+
+                request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
+
+                request.setRequestHeader('Content-Type', 'application/json');
+
+                request.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        console.log('Status:', this.status);
+                        console.log('Headers:', this.getAllResponseHeaders());
+                        console.log('Body:', this.responseText);
+                        responseot = this.responseText;
+                        json_responseot = JSON.parse(responseot);
+
+                        if (json_responseot.status != 404) {
+
+                            request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
+
+                            request.setRequestHeader('Content-Type', 'application/json');
+
+                            request.onreadystatechange = function () {
+                                if (this.readyState === 4) {
+                                    console.log('Status:', this.status);
+                                    console.log('Headers:', this.getAllResponseHeaders());
+                                    console.log('Body:', this.responseText);
+
+                                    responsejd = this.responseText;
+                                    json_responsejd = JSON.parse(responsejd);
+
+                                    if (json_responsejd.status != 404) {
+
+                                        document.getElementById("trackingNumberSubmitted").innerHTML = trakingNum;
+                                        document.getElementById("trackingNumberSubmitted2").innerHTML = trakingNum2;
+                                        document.getElementById("trackingNumberSubmitted3").innerHTML = trakingNum3;
+                                        document.getElementById("trackingNumberSubmitted4").innerHTML = trakingNum4;
+                                        document.getElementById("trackingNumberSubmitted5").innerHTML = trakingNum5;
+                                        document.getElementById("trackingNumberSubmitted6").innerHTML = trakingNum6;
+                                        document.getElementById("trackingNumberSubmitted7").innerHTML = trakingNum7;
+                                        document.getElementById("trackingNumberSubmitted8").innerHTML = trakingNum8;
+                                        document.getElementById("trackingNumberSubmitted9").innerHTML = trakingNum9;
+                                        document.getElementById("trackingNumberSubmitted10").innerHTML = trakingNum10;
+                                        document.getElementById("trackingNumberSubmitted11").innerHTML = trakingNum11;
+                                        document.getElementById("trackingNumberSubmitted12").innerHTML = trakingNum12;
+                                        document.getElementById("trackingNumberSubmitted13").innerHTML = trakingNum13;
+                                        document.getElementById("trackingNumberSubmitted14").innerHTML = trakingNum14;
+                                        document.getElementById("trackingNumberSubmitted15").innerHTML = trakingNum15;
+                                        document.getElementById("trackingNumberSubmitted16").innerHTML = trakingNum16;
+                                        document.getElementById("trackingNumberSubmitted17").innerHTML = trakingNum17;
+                                        document.getElementById("trackingNumberSubmitted18").innerHTML = trakingNum18;
+                                        document.getElementById("trackingNumberSubmitted19").innerHTML = trakingNum19;
+                                        document.getElementById("trackingNumberSubmitted20").innerHTML = trakingNum20;
+                                        document.getElementById("deliveryDateSubmitted").innerHTML = dateTimeClose;
+                                        document.getElementById("agentSubmitted").innerHTML = agentNum;
+
+
+                                        document.getElementById("loading").style.display = 'none';
+                                        document.getElementById("resultBox").style.display = 'block';
+                                        document.getElementById("submitagain").style.display = 'block';
+
+                                        document.getElementById("submitagain").addEventListener("click", function () {
+                                            document.getElementById("submitagain").style.display = 'none';
+                                            document.getElementById("inputarea").style.display = 'block';
+                                            document.getElementById("resultBox").style.display = 'none';
+                                        });
+                                    } if (json_responsejd.status == 404) {
+                                        document.getElementById("loading").style.display = 'none';
+                                        document.getElementById("wronginput").style.display = 'block';
+                                        document.getElementById("inputarea").style.display = 'block';
+                                    }
+                                }
+                            }
+                            var body = {
+                                'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                                "job_ids": [trakingNum, trakingNum2, trakingNum3, trakingNum4, trakingNum5, trakingNum6, trakingNum7, trakingNum8, trakingNum9, trakingNum10, trakingNum11, trakingNum12, trakingNum13, trakingNum14, trakingNum15, trakingNum16, trakingNum17, trakingNum18, trakingNum19, trakingNum20],
+                                'layout_type': 0,
+                                'start_time': dateTime,
+                                'end_time': dateTimeClose
+                            };
+                            request.send(JSON.stringify(body));
+
+                        }
+                        if (json_responseot.status == 404) {
+                            document.getElementById("loading").style.display = 'none';
+                            document.getElementById("wronginput").style.display = 'block';
+                            document.getElementById("inputarea").style.display = 'block';
+                        }
+                    }
+                };
+                var body = {
+                    'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                    "fleet_id": agentNum,
+                    "job_ids": [trakingNum, trakingNum2, trakingNum3, trakingNum4, trakingNum5, trakingNum6, trakingNum7, trakingNum8, trakingNum9, trakingNum10, trakingNum11, trakingNum12, trakingNum13, trakingNum14, trakingNum15, trakingNum16, trakingNum17, trakingNum18, trakingNum19, trakingNum20]
+                };
+                request.send(JSON.stringify(body));
+            }
+        });
+    </script>
+</body>
+
+</html>

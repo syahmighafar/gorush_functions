@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -24,6 +22,8 @@
             font-family: poppins;
         }
     </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body style="text-align: center;">
@@ -98,6 +98,7 @@
             <option value="1113078">FD HANAFI</option>
             <option value="1230427">FD FAEZ</option>
             <option value="1254189">FDZUL</option>
+            <option value="1003154">IFR DYLAN</option>
         </select><br><br>
         <p>*The Complete Before Date/Time will automatically be set by today at 11:00pm.</p>
         <button id="submitAssignButton">Assign Tasks To Selected Agent</button>
@@ -130,6 +131,8 @@
 
         <p id="agentSubmitted"></p>
     </div>
+
+    <div id="editor"></div>
 
     <script>
         var countBarcode = 1;
@@ -172,6 +175,10 @@
                     heading_6.innerHTML = "Delivery Type";
                     let heading_7 = document.createElement('th');
                     heading_7.innerHTML = "Tracking number";
+                    let heading_8 = document.createElement('th');
+                    heading_8.innerHTML = "Area";
+                    let heading_9 = document.createElement('th');
+                    heading_9.innerHTML = "Done By";
 
                     row_1.appendChild(heading_1);
                     row_1.appendChild(heading_2);
@@ -180,6 +187,8 @@
                     row_1.appendChild(heading_5);
                     row_1.appendChild(heading_6);
                     row_1.appendChild(heading_7);
+                    row_1.appendChild(heading_8);
+                    row_1.appendChild(heading_9);
                     thead.appendChild(row_1);
 
 
@@ -219,6 +228,8 @@
                             row_2_data_6.innerHTML = json_responsetn1.data[0].job_description;
                             let row_2_data_7 = document.createElement('td');
                             row_2_data_7.innerHTML = json_responsetn1.data[0].job_id;
+                            let row_2_data_8 = document.createElement('td');
+                            let row_2_data_9 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -227,7 +238,23 @@
                             row_2.appendChild(row_2_data_5);
                             row_2.appendChild(row_2_data_6);
                             row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
                             tbody.appendChild(row_2);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'Area ' + countBarcode);
+                            newField.setAttribute('data-name', 'Area ' + countBarcode);
+                            newField.setAttribute('id', 'Area-' + countBarcode);
+                            row_2_data_8.appendChild(newField);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
+                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -277,6 +304,8 @@
                             row_2_data_6.innerHTML = json_responsetn2.data[0].job_description;
                             let row_2_data_7 = document.createElement('td');
                             row_2_data_7.innerHTML = json_responsetn2.data[0].job_id;
+                            let row_2_data_8 = document.createElement('td');
+                            let row_2_data_9 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -285,7 +314,23 @@
                             row_2.appendChild(row_2_data_5);
                             row_2.appendChild(row_2_data_6);
                             row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
                             tbody.appendChild(row_2);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'Area ' + countBarcode);
+                            newField.setAttribute('data-name', 'Area ' + countBarcode);
+                            newField.setAttribute('id', 'Area-' + countBarcode);
+                            row_2_data_8.appendChild(newField);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
+                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -335,6 +380,9 @@
                             row_2_data_6.innerHTML = json_responsetn3.data[0].job_description;
                             let row_2_data_7 = document.createElement('td');
                             row_2_data_7.innerHTML = json_responsetn3.data[0].job_id;
+                            let row_2_data_8 = document.createElement('td');
+                            let row_2_data_9 = document.createElement('td');
+
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -343,7 +391,23 @@
                             row_2.appendChild(row_2_data_5);
                             row_2.appendChild(row_2_data_6);
                             row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
                             tbody.appendChild(row_2);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'Area ' + countBarcode);
+                            newField.setAttribute('data-name', 'Area ' + countBarcode);
+                            newField.setAttribute('id', 'Area-' + countBarcode);
+                            row_2_data_8.appendChild(newField);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
+                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -393,6 +457,8 @@
                             row_2_data_6.innerHTML = json_responsetn4.data[0].job_description;
                             let row_2_data_7 = document.createElement('td');
                             row_2_data_7.innerHTML = json_responsetn4.data[0].job_id;
+                            let row_2_data_8 = document.createElement('td');
+                            let row_2_data_9 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -401,7 +467,23 @@
                             row_2.appendChild(row_2_data_5);
                             row_2.appendChild(row_2_data_6);
                             row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
                             tbody.appendChild(row_2);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'Area ' + countBarcode);
+                            newField.setAttribute('data-name', 'Area ' + countBarcode);
+                            newField.setAttribute('id', 'Area-' + countBarcode);
+                            row_2_data_8.appendChild(newField);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
+                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -451,6 +533,8 @@
                             row_2_data_6.innerHTML = json_responsetn5.data[0].job_description;
                             let row_2_data_7 = document.createElement('td');
                             row_2_data_7.innerHTML = json_responsetn5.data[0].job_id;
+                            let row_2_data_8 = document.createElement('td');
+                            let row_2_data_9 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -459,7 +543,23 @@
                             row_2.appendChild(row_2_data_5);
                             row_2.appendChild(row_2_data_6);
                             row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
                             tbody.appendChild(row_2);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'Area ' + countBarcode);
+                            newField.setAttribute('data-name', 'Area ' + countBarcode);
+                            newField.setAttribute('id', 'Area-' + countBarcode);
+                            row_2_data_8.appendChild(newField);
+
+                            var newField = document.createElement('input');
+                            newField.setAttribute('type', 'text');
+                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
+                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
+                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -479,15 +579,23 @@
             document.getElementById("resultBox").style.display = 'none';
 
             document.getElementById("submitAssignButton").addEventListener("click", assignTask);
-            document.getElementById("downloadPDF").addEventListener("click", generatePDF);
+            document.getElementById("downloadPDF").addEventListener("click", CreatePDFfromHTML);
 
-            function generatePDF() {
-                const element = document.getElementById("tasklist");
-
-                html2pdf()
-                    .from(element)
-                    .save();
+            function CreatePDFfromHTML() {
+                html2canvas($('#tasklist')[0], {
+                    onrendered: function (canvas) {
+                        var data = canvas.toDataURL();
+                        var docDefinition = {
+                            content: [{
+                                image: data,
+                                width: 500
+                            }]
+                        };
+                        pdfMake.createPdf(docDefinition).download("output.pdf");
+                    }
+                });
             }
+
 
             function assignTask() {
 
@@ -652,7 +760,7 @@
                                             request.send(JSON.stringify(body));
                                         }
 
-                                        if (trakingNu2.value != 0) {
+                                        if (trakingNum2.value != 0) {
                                             request.open('POST', 'https://api.tookanapp.com/v2/update_task_status');
                                             request.setRequestHeader('Content-Type', 'application/json');
                                             request.onreadystatechange = function () {
@@ -664,7 +772,7 @@
                                             };
                                             var body = {
                                                 'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-                                                'job_id': trakingNu2,
+                                                'job_id': trakingNum2,
                                                 'job_status': '0'
                                             };
                                             request.send(JSON.stringify(body));
@@ -1035,7 +1143,10 @@
                 request.send(JSON.stringify(body));
             }
         });
+
     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 </body>
 
 </html>

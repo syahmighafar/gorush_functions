@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -24,6 +27,7 @@
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jsPDF/dist/jspdf.min.js"></script>
 </head>
 
 <body style="text-align: center;">
@@ -41,51 +45,71 @@
     <div id="inputarea" style="text-align: center;"><br>
         <p>Tracking Number:</p>
         <input type="text" class="text-field-79 w-input" name="Tracking Number" id="trackingNumber"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber2')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber2')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number2" id="trackingNumber2"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber3')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber3')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number3" id="trackingNumber3"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber4')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber4')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number4" id="trackingNumber4"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber5')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber5')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number5" id="trackingNumber5"
             placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber6')"><br>
         <input type="text" class="text-field-79 w-input" name="Tracking Number6" id="trackingNumber6"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber7')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber7')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number7" id="trackingNumber7"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber8')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber8')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number8" id="trackingNumber8"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber9')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber9')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number9" id="trackingNumber9"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber10')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber10')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number10" id="trackingNumber10"
             placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber11')"><br>
         <input type="text" class="text-field-79 w-input" name="Tracking Number11" id="trackingNumber11"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber12')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber12')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number12" id="trackingNumber12"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber13')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber13')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number13" id="trackingNumber13"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber14')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber14')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number14" id="trackingNumber14"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber15')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber15')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number15" id="trackingNumber15"
             placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber16')"><br>
         <input type="text" class="text-field-79 w-input" name="Tracking Number16" id="trackingNumber16"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber17')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber17')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number17" id="trackingNumber17"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber18')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber18')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number18" id="trackingNumber18"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber19')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber19')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number19" id="trackingNumber19"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber20')"><br>
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'trackingNumber20')">
         <input type="text" class="text-field-79 w-input" name="Tracking Number20" id="trackingNumber20"
-            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'agent')">
+            placeholder="123456789" maxlength="9" onkeyup="jump001(this, 'agent')"><br>
     </div><br>
 
-    <div id="tasklist"></div>
+    <div id="podArea">
+        <p>Area: <select name="areaCode" id="areaCode" style="border-radius: 5px;">
+                <option value="">Select one...</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="G1">G1</option>
+                <option value="G2">G2</option>
+                <option value="JT3">JT3</option>
+                <option value="JT2">JT2</option>
+                <option value="JT1">JT1</option>
+                <option value="TEMBURONG">TEMBURONG</option>
+                <option value="TUTONG">TUTONG</option>
+                <option value="KB">KB</option>
+                <option value="SERIA">SERIA</option>
+            </select>&nbsp;&nbsp;&nbsp;Done By: <input type="text">&nbsp;&nbsp;&nbsp;Date of POD: <input type="text"
+                id="podDate"></p><br>
+        <div id="tasklist"></div>
+    </div>
+
+    <div id="elementH"></div>
 
     <div id="control" style="text-align: center;">
-        <button id="downloadPDF">Download</button><br><br>
+        <button onclick="exportTableToExcel('tasklisttable')" id="downloadExl">Download POD as Excel</button><br><br>
+        <!-- <button id="downloadPDF">Download POD as PDF</button><br><br> -->
         <p>Agent To Be Assigned:</p>
         <select name="agent" id="agent" style="border-radius: 5px;">
             <option value="">Select one...</option>
@@ -100,7 +124,8 @@
             <option value="1254189">FDZUL</option>
             <option value="1003154">IFR DYLAN</option>
         </select><br><br>
-        <p>*The Complete Before Date/Time will automatically be set by today at 11:00pm.</p>
+        <p>Assign Date: </p>
+        <input type="text" id="assignDate"><br><br>
         <button id="submitAssignButton">Assign Tasks To Selected Agent</button>
 
     </div>
@@ -132,7 +157,49 @@
         <p id="agentSubmitted"></p>
     </div>
 
-    <div id="editor"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(function () {
+            $("#podDate").datepicker({ minDate: 0, dateFormat: "yy-mm-dd" });
+            $("#assignDate").datepicker({ minDate: 0, dateFormat: "yy-mm-dd" });
+        }
+        );
+    </script>
+
+    <script>
+        function exportTableToExcel(tasklisttable, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tasklisttable);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
 
     <script>
         var countBarcode = 1;
@@ -164,21 +231,25 @@
                     let heading_1 = document.createElement('th');
                     heading_1.innerHTML = "No.";
                     let heading_2 = document.createElement('th');
-                    heading_2.innerHTML = "Patient No.";
+                    heading_2.innerHTML = "Item With Me";
                     let heading_3 = document.createElement('th');
-                    heading_3.innerHTML = "Contact Name";
+                    heading_3.innerHTML = "Order ID";
                     let heading_4 = document.createElement('th');
-                    heading_4.innerHTML = "Address";
+                    heading_4.innerHTML = "Contact Name";
                     let heading_5 = document.createElement('th');
-                    heading_5.innerHTML = "Contact No.";
+                    heading_5.innerHTML = "Address";
                     let heading_6 = document.createElement('th');
-                    heading_6.innerHTML = "Delivery Type";
+                    heading_6.innerHTML = "Contact No.";
                     let heading_7 = document.createElement('th');
-                    heading_7.innerHTML = "Tracking number";
+                    heading_7.innerHTML = "Price";
                     let heading_8 = document.createElement('th');
-                    heading_8.innerHTML = "Area";
+                    heading_8.innerHTML = "Tracking No.";
                     let heading_9 = document.createElement('th');
-                    heading_9.innerHTML = "Done By";
+                    heading_9.innerHTML = "Payment Status";
+                    let heading_10 = document.createElement('th');
+                    heading_10.innerHTML = "BT Uploaded";
+                    let heading_11 = document.createElement('th');
+                    heading_11.innerHTML = "Staging Remark";
 
                     row_1.appendChild(heading_1);
                     row_1.appendChild(heading_2);
@@ -189,8 +260,9 @@
                     row_1.appendChild(heading_7);
                     row_1.appendChild(heading_8);
                     row_1.appendChild(heading_9);
+                    row_1.appendChild(heading_10);
+                    row_1.appendChild(heading_11);
                     thead.appendChild(row_1);
-
 
                     endLoop = endLoop + 1;
                     countBarcode = countBarcode + 1;
@@ -217,19 +289,21 @@
                             let row_2_data_1 = document.createElement('td');
                             row_2_data_1.innerHTML = "1";
                             let row_2_data_2 = document.createElement('td');
-                            row_2_data_2.innerHTML = json_responsetn1.data[0].order_id;
                             let row_2_data_3 = document.createElement('td');
-                            row_2_data_3.innerHTML = json_responsetn1.data[0].customer_username;
+                            row_2_data_3.innerHTML = json_responsetn1.data[0].order_id;
                             let row_2_data_4 = document.createElement('td');
-                            row_2_data_4.innerHTML = json_responsetn1.data[0].job_address;
+                            row_2_data_4.innerHTML = json_responsetn1.data[0].customer_username;
                             let row_2_data_5 = document.createElement('td');
-                            row_2_data_5.innerHTML = json_responsetn1.data[0].customer_phone;
+                            row_2_data_5.innerHTML = json_responsetn1.data[0].job_address;
                             let row_2_data_6 = document.createElement('td');
-                            row_2_data_6.innerHTML = json_responsetn1.data[0].job_description;
+                            row_2_data_6.innerHTML = json_responsetn1.data[0].customer_phone;
                             let row_2_data_7 = document.createElement('td');
-                            row_2_data_7.innerHTML = json_responsetn1.data[0].job_id;
+                            row_2_data_7.innerHTML = json_responsetn1.data[0].job_description;
                             let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn1.data[0].job_id;
                             let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -240,21 +314,9 @@
                             row_2.appendChild(row_2_data_7);
                             row_2.appendChild(row_2_data_8);
                             row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
                             tbody.appendChild(row_2);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'Area ' + countBarcode);
-                            newField.setAttribute('data-name', 'Area ' + countBarcode);
-                            newField.setAttribute('id', 'Area-' + countBarcode);
-                            row_2_data_8.appendChild(newField);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
-                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -293,19 +355,21 @@
                             let row_2_data_1 = document.createElement('td');
                             row_2_data_1.innerHTML = "2";
                             let row_2_data_2 = document.createElement('td');
-                            row_2_data_2.innerHTML = json_responsetn2.data[0].order_id;
                             let row_2_data_3 = document.createElement('td');
-                            row_2_data_3.innerHTML = json_responsetn2.data[0].customer_username;
+                            row_2_data_3.innerHTML = json_responsetn2.data[0].order_id;
                             let row_2_data_4 = document.createElement('td');
-                            row_2_data_4.innerHTML = json_responsetn2.data[0].job_address;
+                            row_2_data_4.innerHTML = json_responsetn2.data[0].customer_username;
                             let row_2_data_5 = document.createElement('td');
-                            row_2_data_5.innerHTML = json_responsetn2.data[0].customer_phone;
+                            row_2_data_5.innerHTML = json_responsetn2.data[0].job_address;
                             let row_2_data_6 = document.createElement('td');
-                            row_2_data_6.innerHTML = json_responsetn2.data[0].job_description;
+                            row_2_data_6.innerHTML = json_responsetn2.data[0].customer_phone;
                             let row_2_data_7 = document.createElement('td');
-                            row_2_data_7.innerHTML = json_responsetn2.data[0].job_id;
+                            row_2_data_7.innerHTML = json_responsetn2.data[0].job_description;
                             let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn2.data[0].job_id;
                             let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -316,21 +380,9 @@
                             row_2.appendChild(row_2_data_7);
                             row_2.appendChild(row_2_data_8);
                             row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
                             tbody.appendChild(row_2);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'Area ' + countBarcode);
-                            newField.setAttribute('data-name', 'Area ' + countBarcode);
-                            newField.setAttribute('id', 'Area-' + countBarcode);
-                            row_2_data_8.appendChild(newField);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
-                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -369,20 +421,21 @@
                             let row_2_data_1 = document.createElement('td');
                             row_2_data_1.innerHTML = "3";
                             let row_2_data_2 = document.createElement('td');
-                            row_2_data_2.innerHTML = json_responsetn3.data[0].order_id;
                             let row_2_data_3 = document.createElement('td');
-                            row_2_data_3.innerHTML = json_responsetn3.data[0].customer_username;
+                            row_2_data_3.innerHTML = json_responsetn3.data[0].order_id;
                             let row_2_data_4 = document.createElement('td');
-                            row_2_data_4.innerHTML = json_responsetn3.data[0].job_address;
+                            row_2_data_4.innerHTML = json_responsetn3.data[0].customer_username;
                             let row_2_data_5 = document.createElement('td');
-                            row_2_data_5.innerHTML = json_responsetn3.data[0].customer_phone;
+                            row_2_data_5.innerHTML = json_responsetn3.data[0].job_address;
                             let row_2_data_6 = document.createElement('td');
-                            row_2_data_6.innerHTML = json_responsetn3.data[0].job_description;
+                            row_2_data_6.innerHTML = json_responsetn3.data[0].customer_phone;
                             let row_2_data_7 = document.createElement('td');
-                            row_2_data_7.innerHTML = json_responsetn3.data[0].job_id;
+                            row_2_data_7.innerHTML = json_responsetn3.data[0].job_description;
                             let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn3.data[0].job_id;
                             let row_2_data_9 = document.createElement('td');
-
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -393,21 +446,9 @@
                             row_2.appendChild(row_2_data_7);
                             row_2.appendChild(row_2_data_8);
                             row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
                             tbody.appendChild(row_2);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'Area ' + countBarcode);
-                            newField.setAttribute('data-name', 'Area ' + countBarcode);
-                            newField.setAttribute('id', 'Area-' + countBarcode);
-                            row_2_data_8.appendChild(newField);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
-                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -446,19 +487,21 @@
                             let row_2_data_1 = document.createElement('td');
                             row_2_data_1.innerHTML = "4";
                             let row_2_data_2 = document.createElement('td');
-                            row_2_data_2.innerHTML = json_responsetn4.data[0].order_id;
                             let row_2_data_3 = document.createElement('td');
-                            row_2_data_3.innerHTML = json_responsetn4.data[0].customer_username;
+                            row_2_data_3.innerHTML = json_responsetn4.data[0].order_id;
                             let row_2_data_4 = document.createElement('td');
-                            row_2_data_4.innerHTML = json_responsetn4.data[0].job_address;
+                            row_2_data_4.innerHTML = json_responsetn4.data[0].customer_username;
                             let row_2_data_5 = document.createElement('td');
-                            row_2_data_5.innerHTML = json_responsetn4.data[0].customer_phone;
+                            row_2_data_5.innerHTML = json_responsetn4.data[0].job_address;
                             let row_2_data_6 = document.createElement('td');
-                            row_2_data_6.innerHTML = json_responsetn4.data[0].job_description;
+                            row_2_data_6.innerHTML = json_responsetn4.data[0].customer_phone;
                             let row_2_data_7 = document.createElement('td');
-                            row_2_data_7.innerHTML = json_responsetn4.data[0].job_id;
+                            row_2_data_7.innerHTML = json_responsetn4.data[0].job_description;
                             let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn4.data[0].job_id;
                             let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -469,21 +512,9 @@
                             row_2.appendChild(row_2_data_7);
                             row_2.appendChild(row_2_data_8);
                             row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
                             tbody.appendChild(row_2);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'Area ' + countBarcode);
-                            newField.setAttribute('data-name', 'Area ' + countBarcode);
-                            newField.setAttribute('id', 'Area-' + countBarcode);
-                            row_2_data_8.appendChild(newField);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
-                            row_2_data_9.appendChild(newField);
                         }
                     };
 
@@ -522,19 +553,21 @@
                             let row_2_data_1 = document.createElement('td');
                             row_2_data_1.innerHTML = "5";
                             let row_2_data_2 = document.createElement('td');
-                            row_2_data_2.innerHTML = json_responsetn5.data[0].order_id;
                             let row_2_data_3 = document.createElement('td');
-                            row_2_data_3.innerHTML = json_responsetn5.data[0].customer_username;
+                            row_2_data_3.innerHTML = json_responsetn5.data[0].order_id;
                             let row_2_data_4 = document.createElement('td');
-                            row_2_data_4.innerHTML = json_responsetn5.data[0].job_address;
+                            row_2_data_4.innerHTML = json_responsetn5.data[0].customer_username;
                             let row_2_data_5 = document.createElement('td');
-                            row_2_data_5.innerHTML = json_responsetn5.data[0].customer_phone;
+                            row_2_data_5.innerHTML = json_responsetn5.data[0].job_address;
                             let row_2_data_6 = document.createElement('td');
-                            row_2_data_6.innerHTML = json_responsetn5.data[0].job_description;
+                            row_2_data_6.innerHTML = json_responsetn5.data[0].customer_phone;
                             let row_2_data_7 = document.createElement('td');
-                            row_2_data_7.innerHTML = json_responsetn5.data[0].job_id;
+                            row_2_data_7.innerHTML = json_responsetn5.data[0].job_description;
                             let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn5.data[0].job_id;
                             let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
 
                             row_2.appendChild(row_2_data_1);
                             row_2.appendChild(row_2_data_2);
@@ -545,27 +578,544 @@
                             row_2.appendChild(row_2_data_7);
                             row_2.appendChild(row_2_data_8);
                             row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
                             tbody.appendChild(row_2);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'Area ' + countBarcode);
-                            newField.setAttribute('data-name', 'Area ' + countBarcode);
-                            newField.setAttribute('id', 'Area-' + countBarcode);
-                            row_2_data_8.appendChild(newField);
-
-                            var newField = document.createElement('input');
-                            newField.setAttribute('type', 'text');
-                            newField.setAttribute('name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('data-name', 'DoneBy ' + countBarcode);
-                            newField.setAttribute('id', 'DoneBy-' + countBarcode);
-                            row_2_data_9.appendChild(newField);
                         }
                     };
 
                     var body = {
                         'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
                         'job_ids': [trakingNum5],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 6) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum6 = document.getElementById("trackingNumber6").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn6 = this.responseText;
+                            json_responsetn6 = JSON.parse(responsetn6);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "6";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn6.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn6.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn6.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn6.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn6.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn6.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum6],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 7) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum7 = document.getElementById("trackingNumber7").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn7 = this.responseText;
+                            json_responsetn7 = JSON.parse(responsetn7);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "7";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn7.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn7.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn7.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn7.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn7.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn7.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum7],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 8) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum8 = document.getElementById("trackingNumber8").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn8 = this.responseText;
+                            json_responsetn8 = JSON.parse(responsetn8);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "8";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn8.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn8.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn8.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn8.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn8.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn8.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum8],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 9) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum9 = document.getElementById("trackingNumber9").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn9 = this.responseText;
+                            json_responsetn9 = JSON.parse(responsetn9);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "9";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn9.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn9.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn9.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn9.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn9.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn9.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum9],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 10) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum10 = document.getElementById("trackingNumber10").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn10 = this.responseText;
+                            json_responsetn10 = JSON.parse(responsetn10);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "10";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn10.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn10.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn10.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn10.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn10.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn10.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum10],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 11) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum11 = document.getElementById("trackingNumber11").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn11 = this.responseText;
+                            json_responsetn11 = JSON.parse(responsetn11);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "11";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn11.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn11.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn11.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn11.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn11.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn11.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum11],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 12) && (endLoop == 0)) {
+                    endLoop = endLoop + 1;
+                    countBarcode = countBarcode + 1;
+
+                    let trakingNum12 = document.getElementById("trackingNumber12").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn12 = this.responseText;
+                            json_responsetn12 = JSON.parse(responsetn12);
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "12";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn12.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn12.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn12.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn12.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn12.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn12.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum12],
+                        'include_task_history': 0
+                    };
+
+                    request.send(JSON.stringify(body));
+                }
+
+                if ((countBarcode == 13) && (endLoop == 0)) {
+
+                    let trakingNum13 = document.getElementById("trackingNumber13").value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/get_job_details');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            responsetn13 = this.responseText;
+                            json_responsetn13 = JSON.parse(responsetn13);
+
+                            endLoop = endLoop + 1;
+                            countBarcode = countBarcode + 1;
+
+                            let row_2 = document.createElement('tr');
+
+                            let row_2_data_1 = document.createElement('td');
+                            row_2_data_1.innerHTML = "13";
+                            let row_2_data_2 = document.createElement('td');
+                            let row_2_data_3 = document.createElement('td');
+                            row_2_data_3.innerHTML = json_responsetn13.data[0].order_id;
+                            let row_2_data_4 = document.createElement('td');
+                            row_2_data_4.innerHTML = json_responsetn13.data[0].customer_username;
+                            let row_2_data_5 = document.createElement('td');
+                            row_2_data_5.innerHTML = json_responsetn13.data[0].job_address;
+                            let row_2_data_6 = document.createElement('td');
+                            row_2_data_6.innerHTML = json_responsetn13.data[0].customer_phone;
+                            let row_2_data_7 = document.createElement('td');
+                            row_2_data_7.innerHTML = json_responsetn13.data[0].job_description;
+                            let row_2_data_8 = document.createElement('td');
+                            row_2_data_8.innerHTML = json_responsetn13.data[0].job_id;
+                            let row_2_data_9 = document.createElement('td');
+                            let row_2_data_10 = document.createElement('td');
+                            let row_2_data_11 = document.createElement('td');
+
+                            row_2.appendChild(row_2_data_1);
+                            row_2.appendChild(row_2_data_2);
+                            row_2.appendChild(row_2_data_3);
+                            row_2.appendChild(row_2_data_4);
+                            row_2.appendChild(row_2_data_5);
+                            row_2.appendChild(row_2_data_6);
+                            row_2.appendChild(row_2_data_7);
+                            row_2.appendChild(row_2_data_8);
+                            row_2.appendChild(row_2_data_9);
+                            row_2.appendChild(row_2_data_10);
+                            row_2.appendChild(row_2_data_11);
+                            tbody.appendChild(row_2);
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'job_ids': [trakingNum13],
                         'include_task_history': 0
                     };
 
@@ -579,23 +1129,28 @@
             document.getElementById("resultBox").style.display = 'none';
 
             document.getElementById("submitAssignButton").addEventListener("click", assignTask);
-            document.getElementById("downloadPDF").addEventListener("click", CreatePDFfromHTML);
 
-            function CreatePDFfromHTML() {
-                html2canvas($('#tasklist')[0], {
-                    onrendered: function (canvas) {
-                        var data = canvas.toDataURL();
-                        var docDefinition = {
-                            content: [{
-                                image: data,
-                                width: 500
-                            }]
-                        };
-                        pdfMake.createPdf(docDefinition).download("output.pdf");
-                    }
-                });
-            }
+            // document.getElementById("downloadPDF").addEventListener("click", convertToPDF);
 
+            // function convertToPDF() {
+            //     var doc = new jsPDF({
+            //         orientation: 'landscape'
+            //     });
+            //     var elementHTML = $('#podArea').html();
+            //     var specialElementHandlers = {
+            //         '#elementH': function (element, renderer) {
+            //             return true;
+            //         }
+            //     };
+
+            //     doc.fromHTML(elementHTML, 15, 15, {
+            //         'width': 100,
+            //         'elementHandlers': specialElementHandlers
+            //     });
+
+            //     // Save the PDF
+            //     doc.save('sample-document.pdf');
+            // }
 
             function assignTask() {
 

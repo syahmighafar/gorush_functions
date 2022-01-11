@@ -1491,7 +1491,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById("assigntaskbuttonarea").style.display = 'block';
     }
 
-    document.getElementById("downloadExl").addEventListener("click", exportTableToExcel('tasklisttable'));
+    document.getElementById("downloadExl").addEventListener("click", exportTableToExcel());
 
     function exportTableToExcel(tasklisttable, filename = '') {
         var downloadLink;

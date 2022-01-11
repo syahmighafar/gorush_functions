@@ -3,6 +3,7 @@ var countBarcode = 1;
 
         let table = document.createElement('table');
         table.setAttribute("id", "tasklisttable");
+        table.setAttribute("border", "1");
         table.className = "table table-striped table-hover table-bordered table-responsive";
         let thead = document.createElement('thead');
         let tbody = document.createElement('tbody');
@@ -1448,7 +1449,6 @@ var countBarcode = 1;
             document.getElementById("assigntaskbuttonarea").style.display = 'none';
             document.getElementById("control").style.display = 'none';
             document.getElementById("resultBox").style.display = 'none';
-            document.getElementById("submitagain").style.display = 'none';
 
             document.getElementById("resultBox").style.display = 'none';
 
@@ -1456,14 +1456,11 @@ var countBarcode = 1;
 
             document.getElementById("submitAssignButton").addEventListener("click", assignTask);
 
-            document.getElementById("submitAssignConfirmButton").addEventListener("click", assignTaskConfirm);
-
             function createPODTemplate() {
 
                 let areaCode = document.getElementById("areaCode").value;
                 let podDoneBy = document.getElementById("podDoneBy").value;
                 let podDate = document.getElementById("podDate").value;
-
 
                 // Creating and adding data to first row of the table
                 let row_h = document.createElement('tr');
@@ -1488,16 +1485,31 @@ var countBarcode = 1;
                 row_h.appendChild(row_h_data_5);
                 row_h.appendChild(row_h_data_6);
                 thead.appendChild(row_h);
-                document.getElementById("createPODTemplateButton").style.display = 'none';
+                document.getElementById("areaCodeArea").style.display = 'none';
                 document.getElementById("inputarea").style.display = 'block';
                 document.getElementById("excelbuttonarea").style.display = 'block';
                 document.getElementById("assigntaskbuttonarea").style.display = 'block';
             }
 
             function assignTask() {
+                document.getElementById("inputarea").style.display = 'none';
                 document.getElementById("assigntaskbuttonarea").style.display = 'none';
                 document.getElementById("control").style.display = 'block';
             }
+
+            document.getElementById("submitAssignConfirmButton").addEventListener("click", function () {
+            if (($("#agent").val().length == 0)) {
+                alert("Please do not leave the agent field empty!");
+            }
+            
+            if (($("#assignDate").val().length == 0)) {
+                alert("Please do not leave the assign date field empty!");
+            }
+
+            if (($("#agent").val().length != 0) && ($("#assignDate").val().length != 0)) {
+                assignTaskConfirm();
+            }
+        });
 
             function assignTaskConfirm() {
 
@@ -1630,8 +1642,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted").innerHTML = trakingNum;
                                                 }
                                             };
                                             var body = {
@@ -1650,8 +1660,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted2").innerHTML = trakingNum2;
                                                 }
                                             };
                                             var body = {
@@ -1670,8 +1678,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted3").innerHTML = trakingNum3;
                                                 }
                                             };
                                             var body = {
@@ -1690,8 +1696,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted4").innerHTML = trakingNum4;
                                                 }
                                             };
                                             var body = {
@@ -1710,8 +1714,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted5").innerHTML = trakingNum5;
                                                 }
                                             };
                                             var body = {
@@ -1730,8 +1732,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted6").innerHTML = trakingNum6;
                                                 }
                                             };
                                             var body = {
@@ -1750,8 +1750,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted7").innerHTML = trakingNum7;
                                                 }
                                             };
                                             var body = {
@@ -1770,8 +1768,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted8").innerHTML = trakingNum8;
                                                 }
                                             };
                                             var body = {
@@ -1790,8 +1786,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted9").innerHTML = trakingNum9;
                                                 }
                                             };
                                             var body = {
@@ -1810,8 +1804,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted10").innerHTML = trakingNum10;
                                                 }
                                             };
                                             var body = {
@@ -1830,9 +1822,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted11").innerHTML = trakingNum11;
-
                                                 }
                                             };
                                             var body = {
@@ -1851,8 +1840,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted12").innerHTML = trakingNum12;
                                                 }
                                             };
                                             var body = {
@@ -1871,8 +1858,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted13").innerHTML = trakingNum13;
                                                 }
                                             };
                                             var body = {
@@ -1891,8 +1876,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted14").innerHTML = trakingNum14;
                                                 }
                                             };
                                             var body = {
@@ -1911,8 +1894,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted15").innerHTML = trakingNum15;
                                                 }
                                             };
                                             var body = {
@@ -1931,8 +1912,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted16").innerHTML = trakingNum16;
                                                 }
                                             };
                                             var body = {
@@ -1951,8 +1930,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted17").innerHTML = trakingNum17;
                                                 }
                                             };
                                             var body = {
@@ -1971,8 +1948,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted18").innerHTML = trakingNum18;
                                                 }
                                             };
                                             var body = {
@@ -1991,8 +1966,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted19").innerHTML = trakingNum19;
                                                 }
                                             };
                                             var body = {
@@ -2011,8 +1984,6 @@ var countBarcode = 1;
                                                     console.log('Status:', this.status);
                                                     console.log('Headers:', this.getAllResponseHeaders());
                                                     console.log('Body:', this.responseText);
-
-                                                    document.getElementById("trackingNumberSubmitted20").innerHTML = trakingNum20;
                                                 }
                                             };
                                             var body = {
@@ -2023,75 +1994,9 @@ var countBarcode = 1;
                                             request.send(JSON.stringify(body));
                                         }
 
-                                        document.getElementById("deliveryDateSubmitted").innerHTML = dateTimeClose;
-                                        document.getElementById("agentSubmitted").innerHTML = agentNum;
-
                                         document.getElementById("loading").style.display = 'none';
                                         document.getElementById("resultBox").style.display = 'block';
-                                        document.getElementById("submitagain").style.display = 'block';
 
-                                        document.getElementById("submitagain").addEventListener("click", function () {
-                                            countBarcode = 1;
-                                            endLoop = 0;
-
-                                            document.getElementById("submitagain").style.display = 'none';
-                                            document.getElementById("resultBox").style.display = 'none';
-
-                                            document.getElementById("inputarea").style.display = 'none';
-                                            document.getElementById("createPODTemplateButton").style.display = 'block';
-
-                                            document.getElementById("tasklist").innerHTML = '';
-
-                                            document.getElementById("trackingNumberSubmitted").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted2").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted3").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted4").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted5").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted6").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted7").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted8").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted9").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted10").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted11").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted12").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted13").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted14").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted15").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted16").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted17").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted18").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted19").innerHTML = '';
-                                            document.getElementById("trackingNumberSubmitted20").innerHTML = '';
-                                            document.getElementById("deliveryDateSubmitted").innerHTML = '';
-                                            document.getElementById("agentSubmitted").innerHTML = '';
-
-                                            document.getElementById("Tracking Number").value = '';
-                                            document.getElementById("Tracking Number2").value = '';
-                                            document.getElementById("Tracking Number3").value = '';
-                                            document.getElementById("Tracking Number4").value = '';
-                                            document.getElementById("Tracking Number5").value = '';
-                                            document.getElementById("Tracking Number6").value = '';
-                                            document.getElementById("Tracking Number7").value = '';
-                                            document.getElementById("Tracking Number8").value = '';
-                                            document.getElementById("Tracking Number9").value = '';
-                                            document.getElementById("Tracking Number10").value = '';
-                                            document.getElementById("Tracking Number11").value = '';
-                                            document.getElementById("Tracking Number12").value = '';
-                                            document.getElementById("Tracking Number13").value = '';
-                                            document.getElementById("Tracking Number14").value = '';
-                                            document.getElementById("Tracking Number15").value = '';
-                                            document.getElementById("Tracking Number16").value = '';
-                                            document.getElementById("Tracking Number17").value = '';
-                                            document.getElementById("Tracking Number18").value = '';
-                                            document.getElementById("Tracking Number19").value = '';
-                                            document.getElementById("Tracking Number20").value = '';
-
-                                            document.getElementById("areaCode").value = '';
-                                            document.getElementById("podDoneBy").value = '';
-                                            document.getElementById("podDate").value = '';
-                                            document.getElementById("agent").value = '';
-                                            document.getElementById("assignDate").value = '';
-                                        });
                                     } if (json_responsejd.status == 404) {
                                         document.getElementById("loading").style.display = 'none';
                                         document.getElementById("wronginput").style.display = 'block';

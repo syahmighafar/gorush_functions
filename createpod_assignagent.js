@@ -1455,6 +1455,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("createPODTemplateButton").addEventListener("click", createPODTemplate);
 
     document.getElementById("submitAssignButton").addEventListener("click", assignTask);
+    
+    document.getElementById("downloadExl").addEventListener("click", exportTableToExcel);
 
     function createPODTemplate() {
 
@@ -1490,8 +1492,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.getElementById("excelbuttonarea").style.display = 'block';
         document.getElementById("assigntaskbuttonarea").style.display = 'block';
     }
-
-    document.getElementById("downloadExl").addEventListener("click", exportTableToExcel());
 
     function exportTableToExcel(tasklisttable, filename = '') {
         var downloadLink;

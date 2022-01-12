@@ -4,6 +4,7 @@ var endLoop = 0;
 let table = document.createElement('table');
 table.setAttribute("id", "tasklisttable");
 table.setAttribute("border", "1");
+table.setAttribute('contenteditable', true);
 table.className = "table table-striped table-hover table-bordered table-responsive";
 let thead = document.createElement('thead');
 let tbody = document.createElement('tbody');

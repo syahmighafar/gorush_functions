@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 tnInput.setAttribute('id', 'trackingNumber' + (i + 1));
                 tnInput.setAttribute('placeholder', (i + 1));
                 tnInput.setAttribute('maxlength', '9');
+                tnInput.setAttribute('size', '9');
 
                 if (numOfTNcheck != i) {
                     tnInput.setAttribute('onkeyup', "jump001(this, 'trackingNumber" + (i + 2) + "')");

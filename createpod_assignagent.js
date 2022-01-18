@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     document.getElementById("loading").style.display = 'none';
     document.getElementById("wronginput").style.display = 'none';
-    document.getElementById("inputareagrid").style.display = 'none';
+    document.getElementById("inputarea").style.display = 'none';
     document.getElementById("excelbuttonarea").style.display = 'none';
     document.getElementById("assigntaskbuttonarea").style.display = 'none';
     document.getElementById("control").style.display = 'none';
@@ -242,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 tnInput.setAttribute('id', 'trackingNumber' + (i + 1));
                 tnInput.setAttribute('placeholder', (i + 1));
                 tnInput.setAttribute('maxlength', '9');
-                tnInput.setAttribute('size', '9');
 
                 if (numOfTNcheck != i) {
                     tnInput.setAttribute('onkeyup', "jump001(this, 'trackingNumber" + (i + 2) + "')");
@@ -280,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             thead.appendChild(row_h);
 
             document.getElementById("areaCodeArea").style.display = 'none';
-            document.getElementById("inputareagrid").style.display = 'block';
+            document.getElementById("inputarea").style.display = 'block';
             document.getElementById("trackingNumField").style.display = 'block';
             document.getElementById("excelbuttonarea").style.display = 'block';
             document.getElementById("assigntaskbuttonarea").style.display = 'block';
@@ -288,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function assignTask() {
-        document.getElementById("inputareagrid").style.display = 'none';
+        document.getElementById("inputarea").style.display = 'none';
         document.getElementById("trackingNumField").style.display = 'none';
         document.getElementById("assigntaskbuttonarea").style.display = 'none';
         document.getElementById("control").style.display = 'block';

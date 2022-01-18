@@ -252,6 +252,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 document.getElementById("inputarea").appendChild(tnInput);
+                
+                var tnQty = document.createElement('input');
+                tnQty.setAttribute('type', 'hidden');
+                tnQty.setAttribute('class', 'text-field w-input');
+                tnQty.setAttribute('name', 'quantity' + (i + 1));
+                tnQty.setAttribute('id', 'quantity' + (i + 1));
+                tnQty.setAttribute('value', 1);
+
+                document.getElementById("inputareaquantity").appendChild(tnQty);
             }
 
             // Creating and adding data to first row of the table

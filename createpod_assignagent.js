@@ -422,6 +422,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     
                     if (assignDateCheck==numOfAssignTN){
                         assignDateDone = 1;
+                        document.getElementById("loading").style.display = 'none';
+                        document.getElementById("wf-form-Create-POD-Assign-Task-Form").submit();
                     }
                 }
             };
@@ -434,11 +436,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 'end_time': dateTimeClose
             };
             request.send(JSON.stringify(body));
-        }
-        
-        if ((assignTaskDone == 1)&&(assignDateDone == 1)){
-            document.getElementById("loading").style.display = 'none';
-            document.getElementById("wf-form-Create-POD-Assign-Task-Form").submit();
         }
     }
 });

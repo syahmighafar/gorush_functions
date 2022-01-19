@@ -330,7 +330,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         document.getElementById("control").style.display = 'none';
         document.getElementById("loading").style.display = 'block';
-        document.getElementById("wronginput").style.display = 'none';
 
         var assignDate = document.getElementById("assignDate").value;
         var numOfAssignTN = document.getElementById("numOfTN").value;

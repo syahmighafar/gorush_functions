@@ -207,12 +207,10 @@ function jump001(field, autoMove) {
 document.addEventListener("DOMContentLoaded", function (event) {
 
     document.getElementById("loading").style.display = 'none';
-    document.getElementById("wronginput").style.display = 'none';
     document.getElementById("inputarea").style.display = 'none';
     document.getElementById("excelbuttonarea").style.display = 'none';
     document.getElementById("assigntaskbuttonarea").style.display = 'none';
     document.getElementById("control").style.display = 'none';
-    document.getElementById("resultBox").style.display = 'none';
     document.getElementById("trackingNumField").style.display = 'none';
 
     document.getElementById("createPODTemplateButton").addEventListener("click", createPODTemplate);
@@ -256,8 +254,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 var tnQty = document.createElement('input');
                 tnQty.setAttribute('type', 'hidden');
                 tnQty.setAttribute('class', 'text-field w-input');
-                tnQty.setAttribute('name', 'quantity' + (i + 1));
-                tnQty.setAttribute('id', 'quantity' + (i + 1));
+                tnQty.setAttribute('name', 'qty' + (i + 1));
+                tnQty.setAttribute('id', 'qty' + (i + 1));
                 tnQty.setAttribute('value', 1);
 
                 document.getElementById("inputareaquantity").appendChild(tnQty);
@@ -317,6 +315,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     function assignTaskConfirm() {
+        
+        var assignTaskDone = '';
+        var assignDateDone = '';
 
         var responsetd = '';
         var json_responsetd = '';
@@ -381,6 +382,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     console.log('Body:', this.responseText);
 
                     assignTaskToAgent = 1;
+                    
+                    var assignTaskCheck = (j + 1);
+                    
+                    if (assignTaskCheck==numOfAssignTN){
+                        assignTaskDone = 1;
+                    }
                 }
             };
 
@@ -411,6 +418,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     console.log('Body:', this.responseText);
 
                     assignDateTimeToTask = 1;
+                    
+                    var assignDateCheck = (k + 1);
+                    
+                    if (assignDateCheck==numOfAssignTN){
+                        assignDateDone = 1;
+                    }
                 }
             };
 
@@ -423,7 +436,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             };
             request.send(JSON.stringify(body));
         }
-        document.getElementById("loading").style.display = 'none';
-        document.getElementById("resultBox").style.display = 'block';
+        
+        if ((assignTaskDone == 1)&&(assignDateDone == 1)){
+            document.getElementById("loading").style.display = 'none';
+            document.getElementById("wf-form-Create-POD-Assign-Task-Form").submit();
+        }
     }
 });

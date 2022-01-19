@@ -212,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.getElementById("assigntaskbuttonarea").style.display = 'none';
     document.getElementById("control").style.display = 'none';
     document.getElementById("trackingNumField").style.display = 'none';
+    document.getElementById("savetoDB").style.display = 'none';
 
     document.getElementById("createPODTemplateButton").addEventListener("click", createPODTemplate);
 
@@ -423,7 +424,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     if (assignDateCheck==numOfAssignTN){
                         assignDateDone = 1;
                         document.getElementById("loading").style.display = 'none';
-                        document.getElementById("wf-form-Create-POD-Assign-Task-Form").submit();
+                        document.getElementById("savetoDB").style.display = 'block';
                     }
                 }
             };

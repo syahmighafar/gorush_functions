@@ -37,6 +37,14 @@
             <option value="SERIA">SERIA</option>
         </select>
 
+        <p>Merchant Name:</p>
+        <select name="merchantName" id="merchantName" style="border-radius: 5px;" class="select-field-50 w-select">
+            <option value="">Select one...</option>
+            <option value="Zalora">Zalora</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Local Delivery">Local Delivery</option>
+        </select>
+
         <p>POD done by:</p>
         <input type="text" class="text-field-79 w-input" name="podDoneBy" id="podDoneBy">
 
@@ -52,6 +60,10 @@
     <p id="trackingNumField">Tracking Number:</p><br>
 
     <div id="inputarea">
+
+    </div>
+
+    <div id="inputareaquantity">
 
     </div>
 
@@ -99,14 +111,8 @@
 
         <br><br><button id="submitAssignConfirmButton">Assign Tasks To Selected Agent</button>
     </div>
-    <div id="resultBox">
-        <p>Task(s) are successfully assigned to agent. Please refresh the page to create POD and assign task(s) to agent
-            again.</p>
-    </div>
-
-    <p id="loading">Please wait</p>
-
-    <p id="wronginput">Wrong Input</p>
+    
+    <input type="submit" id="savetoDB" value="Submit">
 
     <script>
         let countTN = 1;
@@ -318,13 +324,12 @@
         document.addEventListener("DOMContentLoaded", function (event) {
 
             document.getElementById("loading").style.display = 'none';
-            document.getElementById("wronginput").style.display = 'none';
             document.getElementById("inputarea").style.display = 'none';
             document.getElementById("excelbuttonarea").style.display = 'none';
             document.getElementById("assigntaskbuttonarea").style.display = 'none';
             document.getElementById("control").style.display = 'none';
-            document.getElementById("resultBox").style.display = 'none';
             document.getElementById("trackingNumField").style.display = 'none';
+            document.getElementById("savetoDB").style.display = 'none';
 
             document.getElementById("createPODTemplateButton").addEventListener("click", createPODTemplate);
 
@@ -353,8 +358,6 @@
                         tnInput.setAttribute('id', 'trackingNumber' + (i + 1));
                         tnInput.setAttribute('placeholder', (i + 1));
                         tnInput.setAttribute('maxlength', '9');
-                        tnInput.setAttribute('size', '9');
-
 
                         if (numOfTNcheck != i) {
                             tnInput.setAttribute('onkeyup', "jump001(this, 'trackingNumber" + (i + 2) + "')");
@@ -365,6 +368,15 @@
                         }
 
                         document.getElementById("inputarea").appendChild(tnInput);
+
+                        var tnQty = document.createElement('input');
+                        tnQty.setAttribute('type', 'hidden');
+                        tnQty.setAttribute('class', 'text-field w-input');
+                        tnQty.setAttribute('name', 'qty' + (i + 1));
+                        tnQty.setAttribute('id', 'qty' + (i + 1));
+                        tnQty.setAttribute('value', 1);
+
+                        document.getElementById("inputareaquantity").appendChild(tnQty);
                     }
 
                     // Creating and adding data to first row of the table
@@ -422,18 +434,11 @@
 
             function assignTaskConfirm() {
 
-                var responsetd = '';
-                var json_responsetd = '';
-
-                var responseat = '';
-                var json_responseat = '';
-
                 var assignTaskToAgent = 0;
                 var assignDateTimeToTask = 0;
 
                 document.getElementById("control").style.display = 'none';
                 document.getElementById("loading").style.display = 'block';
-                document.getElementById("wronginput").style.display = 'none';
 
                 var assignDate = document.getElementById("assignDate").value;
                 var numOfAssignTN = document.getElementById("numOfTN").value;
@@ -527,10 +532,12 @@
                     };
                     request.send(JSON.stringify(body));
                 }
+
                 document.getElementById("loading").style.display = 'none';
-                document.getElementById("resultBox").style.display = 'block';
+                document.getElementById("savetoDB").style.display = 'block';
             }
         });
+
     </script>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

@@ -318,7 +318,7 @@ let countTN = 1;
 
             function assignTaskConfirm() {
 
-                var assignTaskToAgent = 0;
+                let countEnd = 0;
                 var assignDateTimeToTask = 0;
 
                 document.getElementById("control").style.display = 'none';
@@ -389,7 +389,6 @@ let countTN = 1;
 
                 for (let j = 0; j < numOfAssignTN; j++) {
 
-                    assignTaskToAgent = 0;
                     var trackingNumAssign = document.getElementById("trackingNumber" + (j + 1)).value;
 
                     var request = new XMLHttpRequest();
@@ -399,12 +398,18 @@ let countTN = 1;
                     request.setRequestHeader('Content-Type', 'application/json');
 
                     request.onreadystatechange = function () {
-                        if ((this.readyState === 4) && (assignTaskToAgent == 0)) {
+                        if ((this.readyState === 4)) {
                             console.log('Status:', this.status);
                             console.log('Headers:', this.getAllResponseHeaders());
                             console.log('Body:', this.responseText);
 
-                            assignTaskToAgent = 1;
+                            countEnd = countEnd + 1;
+
+                            if (countEnd == numOfAssignTN) {
+                                document.getElementById("loading").style.display = 'none';
+                                document.getElementById("captchaBox").style.display = 'block';
+                                document.getElementById("savetoDB").style.display = 'block';
+                            }
                         }
                     };
 

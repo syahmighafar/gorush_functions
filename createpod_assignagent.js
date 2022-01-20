@@ -385,7 +385,7 @@ let countTN = 1;
                         var body = {
                             'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
                             'fleet_id': agentNum,
-                            'job_ids': [trackingNumAssignDate]
+                            'job_ids': trackingNumAssignDate
                         };
                         request.send(JSON.stringify(body));
                     }
@@ -393,7 +393,7 @@ let countTN = 1;
 
                 var body = {
                     'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-                    "job_ids": [trackingNumAssignDate],
+                    "job_ids": trackingNumAssignDate,
                     'layout_type': 0,
                     'start_time': dateTime,
                     'end_time': dateTimeClose

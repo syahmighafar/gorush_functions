@@ -363,7 +363,7 @@ let countTN = 1;
 
                     var request = new XMLHttpRequest();
 
-                    request.open('POST', 'https://api.tookanapp.com/v2/assign_task');
+                    request.open('POST', 'https://api.tookanapp.com/v2/assign_fleet_to_task');
 
                     request.setRequestHeader('Content-Type', 'application/json');
 
@@ -395,7 +395,7 @@ let countTN = 1;
 
                     var request = new XMLHttpRequest();
 
-                    request.open('POST', 'https://api.tookanapp.com/v2/assign_fleet_to_task');
+                    request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
 
                     request.setRequestHeader('Content-Type', 'application/json');
 

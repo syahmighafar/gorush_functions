@@ -212,6 +212,7 @@ let countTN = 1;
             document.getElementById("assigntaskbuttonarea").style.display = 'none';
             document.getElementById("control").style.display = 'none';
             document.getElementById("trackingNumField").style.display = 'none';
+            document.getElementById("captchaBox").style.display = 'none';
             document.getElementById("savetoDB").style.display = 'none';
 
             document.getElementById("createPODTemplateButton").addEventListener("click", createPODTemplate);
@@ -362,7 +363,7 @@ let countTN = 1;
 
                     var request = new XMLHttpRequest();
 
-                    request.open('POST', 'https://api.tookanapp.com/v2/assign_fleet_to_task');
+                    request.open('POST', 'https://api.tookanapp.com/v2/assign_task');
 
                     request.setRequestHeader('Content-Type', 'application/json');
 
@@ -381,6 +382,7 @@ let countTN = 1;
                         'job_id': trackingNumAssign,
                         'fleet_id': agentNum,
                         'notify': 1,
+                        'geofence': 0,
                         'job_status': '0'
                     };
                     request.send(JSON.stringify(body));
@@ -393,7 +395,7 @@ let countTN = 1;
 
                     var request = new XMLHttpRequest();
 
-                    request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
+                    request.open('POST', 'https://api.tookanapp.com/v2/assign_fleet_to_task');
 
                     request.setRequestHeader('Content-Type', 'application/json');
 
@@ -418,6 +420,7 @@ let countTN = 1;
                 }
 
                 document.getElementById("loading").style.display = 'none';
+                document.getElementById("captchaBox").style.display = 'block';
                 document.getElementById("savetoDB").style.display = 'block';
             }
         });

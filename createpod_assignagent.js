@@ -317,9 +317,7 @@ let countTN = 1;
             });
 
             function assignTaskConfirm() {
-
-                let countEnd = 0;
-                var assignDateTimeToTask = 0;
+                const trackingNumAssignDate = [];
 
                 document.getElementById("control").style.display = 'none';
                 document.getElementById("loading").style.display = 'block';
@@ -357,69 +355,50 @@ let countTN = 1;
                 var dateTimeClose = assignDate + ' ' + timeClose;
 
                 for (let k = 0; k < numOfAssignTN; k++) {
-
-                    assignDateTimeToTask = 0;
-                    var trackingNumAssignDate = document.getElementById("trackingNumber" + (k + 1)).value;
-
-                    var request = new XMLHttpRequest();
-
-                    request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
-
-                    request.setRequestHeader('Content-Type', 'application/json');
-
-                    request.onreadystatechange = function () {
-                        if ((this.readyState === 4) && (assignDateTimeToTask == 0)) {
-                            console.log('Status:', this.status);
-                            console.log('Headers:', this.getAllResponseHeaders());
-                            console.log('Body:', this.responseText);
-
-                            assignDateTimeToTask = 1;
-                        }
-                    };
-
-                    var body = {
-                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-                        "job_ids": [trackingNumAssignDate],
-                        'layout_type': 0,
-                        'start_time': dateTime,
-                        'end_time': dateTimeClose
-                    };
-                    request.send(JSON.stringify(body));
+                    trackingNumAssignDate.push(document.getElementById("trackingNumber" + (k + 1)).value);
                 }
 
-                for (let j = 0; j < numOfAssignTN; j++) {
+                var request = new XMLHttpRequest();
 
-                    var trackingNumAssign = document.getElementById("trackingNumber" + (j + 1)).value;
+                request.open('POST', 'https://api.tookanapp.com/v2/change_job_date');
 
-                    var request = new XMLHttpRequest();
+                request.setRequestHeader('Content-Type', 'application/json');
 
-                    request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
+                request.onreadystatechange = function () {
+                    if ((this.readyState === 4) && (assignDateTimeToTask == 0)) {
+                        console.log('Status:', this.status);
+                        console.log('Headers:', this.getAllResponseHeaders());
+                        console.log('Body:', this.responseText);
 
-                    request.setRequestHeader('Content-Type', 'application/json');
+                        request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
 
-                    request.onreadystatechange = function () {
-                        if ((this.readyState === 4)) {
-                            console.log('Status:', this.status);
-                            console.log('Headers:', this.getAllResponseHeaders());
-                            console.log('Body:', this.responseText);
+                        request.setRequestHeader('Content-Type', 'application/json');
 
-                            countEnd = countEnd + 1;
-
-                            if (countEnd == numOfAssignTN) {
-                                document.getElementById("loading").style.display = 'none';
-                                document.getElementById("captchaBox").style.display = 'block';
-                                document.getElementById("savetoDB").style.display = 'block';
+                        request.onreadystatechange = function () {
+                            if ((this.readyState === 4)) {
+                                console.log('Status:', this.status);
+                                console.log('Headers:', this.getAllResponseHeaders());
+                                console.log('Body:', this.responseText);
                             }
-                        }
-                    };
+                        };
 
-                    var body = {
-                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-                        'fleet_id': agentNum,
-                        'job_ids': [trackingNumAssign]
-                    };
-                    request.send(JSON.stringify(body));
-                }
+                        var body = {
+                            'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                            'fleet_id': agentNum,
+                            'job_ids': [trackingNumAssignDate]
+                        };
+                        request.send(JSON.stringify(body));
+                    }
+                };
+
+                var body = {
+                    'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                    "job_ids": [trackingNumAssignDate],
+                    'layout_type': 0,
+                    'start_time': dateTime,
+                    'end_time': dateTimeClose
+                };
+                request.send(JSON.stringify(body));
 
                 document.getElementById("loading").style.display = 'none';
                 document.getElementById("captchaBox").style.display = 'block';

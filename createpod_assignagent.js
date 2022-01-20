@@ -223,11 +223,19 @@ let countTN = 1;
 
                 var numOfTN = document.getElementById("numOfTN").value;
 
-                if ((numOfTN < 1) || (numOfTN.length == 0)) {
-                    alert("Please do not leave the Number of Tracking Number(s) field empty or 0!");
+                if (numOfTN < 1) {
+                    alert("Please do not leave the Number of Tracking Number(s) field empty!");
                 }
 
-                if ((numOfTN >= 1) && (numOfTN.length != 0)) {
+                if (numOfTN.length == 0) {
+                    alert("Please do not set the Number of Tracking Number(s) field value 0!");
+                }
+
+                if (numOfTN > 100) {
+                    alert("Please do not set the Number of Tracking Number(s) field value more than 100!");
+                }
+
+                if ((numOfTN >= 1) && (numOfTN.length != 0) && (numOfTN <= 100)) {
                     let areaCode = document.getElementById("areaCode").value;
                     let podDoneBy = document.getElementById("podDoneBy").value;
                     let podDate = document.getElementById("podDate").value;

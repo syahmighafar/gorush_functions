@@ -356,35 +356,6 @@ let countTN = 1;
                 var dateTime = date + ' ' + time;
                 var dateTimeClose = assignDate + ' ' + timeClose;
 
-                for (let j = 0; j < numOfAssignTN; j++) {
-
-                    assignTaskToAgent = 0;
-                    var trackingNumAssign = document.getElementById("trackingNumber" + (j + 1)).value;
-
-                    var request = new XMLHttpRequest();
-
-                    request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
-
-                    request.setRequestHeader('Content-Type', 'application/json');
-
-                    request.onreadystatechange = function () {
-                        if ((this.readyState === 4) && (assignTaskToAgent == 0)) {
-                            console.log('Status:', this.status);
-                            console.log('Headers:', this.getAllResponseHeaders());
-                            console.log('Body:', this.responseText);
-
-                            assignTaskToAgent = 1;
-                        }
-                    };
-
-                    var body = {
-                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-                        'fleet_id': agentNum,
-                        'job_ids': [trackingNumAssign]
-                    };
-                    request.send(JSON.stringify(body));
-                }
-
                 for (let k = 0; k < numOfAssignTN; k++) {
 
                     assignDateTimeToTask = 0;
@@ -412,6 +383,35 @@ let countTN = 1;
                         'layout_type': 0,
                         'start_time': dateTime,
                         'end_time': dateTimeClose
+                    };
+                    request.send(JSON.stringify(body));
+                }
+
+                for (let j = 0; j < numOfAssignTN; j++) {
+
+                    assignTaskToAgent = 0;
+                    var trackingNumAssign = document.getElementById("trackingNumber" + (j + 1)).value;
+
+                    var request = new XMLHttpRequest();
+
+                    request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
+
+                    request.setRequestHeader('Content-Type', 'application/json');
+
+                    request.onreadystatechange = function () {
+                        if ((this.readyState === 4) && (assignTaskToAgent == 0)) {
+                            console.log('Status:', this.status);
+                            console.log('Headers:', this.getAllResponseHeaders());
+                            console.log('Body:', this.responseText);
+
+                            assignTaskToAgent = 1;
+                        }
+                    };
+
+                    var body = {
+                        'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
+                        'fleet_id': agentNum,
+                        'job_ids': [trackingNumAssign]
                     };
                     request.send(JSON.stringify(body));
                 }

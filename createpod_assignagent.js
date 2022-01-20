@@ -363,7 +363,7 @@ let countTN = 1;
 
                     var request = new XMLHttpRequest();
 
-                    request.open('POST', 'https://api.tookanapp.com/v2/assign_fleet_to_task');
+                    request.open('POST', 'https://api.tookanapp.com/v2/reassign_open_tasks');
 
                     request.setRequestHeader('Content-Type', 'application/json');
 
@@ -379,11 +379,8 @@ let countTN = 1;
 
                     var body = {
                         'api_key': '51676580f24b091114132d38111925401ee4c2f328d978375e1f03',
-                        'job_id': trackingNumAssign,
                         'fleet_id': agentNum,
-                        'notify': 1,
-                        'geofence': 0,
-                        'job_status': '0'
+                        'job_ids': [trackingNumAssign]
                     };
                     request.send(JSON.stringify(body));
                 }

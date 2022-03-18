@@ -412,6 +412,38 @@ let countTN = 1;
                     document.getElementById("dispatcher_name").value = "EFR KHAIRUL";
                 }
 
+                if (agentNum == "1311747") {
+                    document.getElementById("dispatcher_name").value = "FD IQBAL";
+                }
+                    
+                if (agentNum == "1166672") {
+                    document.getElementById("dispatcher_name").value = "FD AZRI";
+                }
+                    
+                if (agentNum == "1290342") {
+                    document.getElementById("dispatcher_name").value = "IFR UMAR";
+                }
+                    
+                if (agentNum == "1276415") {
+                    document.getElementById("dispatcher_name").value = "IFR ZUDIN";
+                }
+                    
+                if (agentNum == "1295953") {
+                    document.getElementById("dispatcher_name").value = "EFR ROSMAWATI";
+                }
+                    
+                if (agentNum == "1104714") {
+                    document.getElementById("dispatcher_name").value = "IFR AQEELAH";
+                }
+                    
+                if (agentNum == "1303254") {
+                    document.getElementById("dispatcher_name").value = "FD HAFIZ";
+                }
+                    
+                if (agentNum == "1140555") {
+                    document.getElementById("dispatcher_name").value = "EFR ASIKIN";
+                }
+
                 if (agentNum == "1003154") {
                     document.getElementById("dispatcher_name").value = "IFR DYLAN";
                 }

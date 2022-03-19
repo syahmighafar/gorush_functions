@@ -48,7 +48,7 @@ let countTN = 1;
 
                             if (json_responsetn.status != 404) {
                                 document.getElementById("wronginput").style.display = 'none';
-                                document.getElementById(autoMove).focus();
+                                //document.getElementById(autoMove).focus();
 
                                 let row_1 = document.createElement('tr');
                                 let heading_1 = document.createElement('th');
@@ -164,7 +164,7 @@ let countTN = 1;
 
                             if (json_responsetn.status != 404) {
                                 document.getElementById("wronginput").style.display = 'none';
-                                document.getElementById(autoMove).focus();
+                                //document.getElementById(autoMove).focus();
 
                                 var row_2 = document.createElement('tr');
 

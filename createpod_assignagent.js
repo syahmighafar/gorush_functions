@@ -226,7 +226,7 @@ let countTN = 1;
             document.getElementById("assigntaskbuttonarea").style.display = 'none';
             document.getElementById("control").style.display = 'none';
             document.getElementById("trackingNumField").style.display = 'none';
-            document.getElementById("captchaBox").style.display = 'none';
+            //document.getElementById("captchaBox").style.display = 'none';
             document.getElementById("savetoDB").style.display = 'none';
             document.getElementById("wronginput").style.display = 'none';
 
@@ -535,7 +535,7 @@ let countTN = 1;
                 request.send(JSON.stringify(body));
 
                 document.getElementById("loading").style.display = 'none';
-                document.getElementById("captchaBox").style.display = 'block';
+                //document.getElementById("captchaBox").style.display = 'block';
                 document.getElementById("savetoDB").style.display = 'block';
             }
         });
